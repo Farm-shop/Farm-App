@@ -8,11 +8,13 @@ android {
     defaultConfig {
         applicationId "com.example.farmshop"
         minSdk 24
+        multiDexEnabled true
         targetSdk 31
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
     }
 
     buildTypes {
@@ -22,6 +24,7 @@ android {
         }
     }
     compileOptions {
+        coreLibraryDesugaringEnabled true
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
@@ -44,4 +47,15 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     implementation 'com.google.android.material:material:<version>'
+
+    implementation 'com.amplifyframework:core:1.24.0'
+    implementation 'com.amplifyframework:aws-api:1.24.0'
+    implementation 'androidx.multidex:multidex:2.0.1'
+
+
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.amplifyframework:aws-datastore:1.24.0'
+
+    // Support for Java 8 features
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.5'
 }
