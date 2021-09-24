@@ -31,7 +31,7 @@ android {
     sourceSets {
         main {
             res {
-                srcDirs 'src\\main\\res', 'src\\main\\res\\row', 'src\\main\\res\\raw', 'src\\main\\res\\menu'
+                srcDirs 'src\\main\\res', 'src\\main\\res\\row', 'src\\main\\res\\raw', 'src\\main\\res\\menu', 'src\\main\\res\\ahmad'
             }
         }
     }
@@ -58,4 +58,7 @@ dependencies {
 
     // Support for Java 8 features
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.5'
+
+    //for authontication
+    implementation 'com.amplifyframework:aws-auth-cognito:1.24.0'
 }

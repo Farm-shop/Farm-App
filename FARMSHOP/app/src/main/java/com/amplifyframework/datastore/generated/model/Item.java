@@ -15,19 +15,19 @@ import com.amplifyframework.core.model.query.predicate.QueryField;
 
 import static com.amplifyframework.core.model.query.predicate.QueryField.field;
 
-/** This is an auto generated class representing the Product type in your schema. */
+/** This is an auto generated class representing the Item type in your schema. */
 @SuppressWarnings("all")
-@ModelConfig(pluralName = "Products")
-@Index(name = "byFarm", fields = {"farmID","name","price","quantity","image"})
-public final class Product implements Model {
+@ModelConfig(pluralName = "Items")
+@Index(name = "byUser", fields = {"userID","name","price","quantity","image"})
+public final class Item implements Model {
   public static final QueryField ID = field("id");
-  public static final QueryField FARM_ID = field("farmID");
+  public static final QueryField USER_ID = field("userID");
   public static final QueryField NAME = field("name");
   public static final QueryField PRICE = field("price");
   public static final QueryField QUANTITY = field("quantity");
   public static final QueryField IMAGE = field("image");
   private final @ModelField(targetType="ID", isRequired = true) String id;
-  private final @ModelField(targetType="ID", isRequired = true) String farmID;
+  private final @ModelField(targetType="ID", isRequired = true) String userID;
   private final @ModelField(targetType="String", isRequired = true) String name;
   private final @ModelField(targetType="String", isRequired = true) String price;
   private final @ModelField(targetType="String", isRequired = true) String quantity;
@@ -36,8 +36,8 @@ public final class Product implements Model {
       return id;
   }
   
-  public String getFarmId() {
-      return farmID;
+  public String getUserId() {
+      return userID;
   }
   
   public String getName() {
@@ -56,9 +56,9 @@ public final class Product implements Model {
       return image;
   }
   
-  private Product(String id, String farmID, String name, String price, String quantity, String image) {
+  private Item(String id, String userID, String name, String price, String quantity, String image) {
     this.id = id;
-    this.farmID = farmID;
+    this.userID = userID;
     this.name = name;
     this.price = price;
     this.quantity = quantity;
@@ -72,13 +72,13 @@ public final class Product implements Model {
       } else if(obj == null || getClass() != obj.getClass()) {
         return false;
       } else {
-      Product product = (Product) obj;
-      return ObjectsCompat.equals(getId(), product.getId()) &&
-              ObjectsCompat.equals(getFarmId(), product.getFarmId()) &&
-              ObjectsCompat.equals(getName(), product.getName()) &&
-              ObjectsCompat.equals(getPrice(), product.getPrice()) &&
-              ObjectsCompat.equals(getQuantity(), product.getQuantity()) &&
-              ObjectsCompat.equals(getImage(), product.getImage());
+      Item item = (Item) obj;
+      return ObjectsCompat.equals(getId(), item.getId()) &&
+              ObjectsCompat.equals(getUserId(), item.getUserId()) &&
+              ObjectsCompat.equals(getName(), item.getName()) &&
+              ObjectsCompat.equals(getPrice(), item.getPrice()) &&
+              ObjectsCompat.equals(getQuantity(), item.getQuantity()) &&
+              ObjectsCompat.equals(getImage(), item.getImage());
       }
   }
   
@@ -86,7 +86,7 @@ public final class Product implements Model {
    public int hashCode() {
     return new StringBuilder()
       .append(getId())
-      .append(getFarmId())
+      .append(getUserId())
       .append(getName())
       .append(getPrice())
       .append(getQuantity())
@@ -98,9 +98,9 @@ public final class Product implements Model {
   @Override
    public String toString() {
     return new StringBuilder()
-      .append("Product {")
+      .append("Item {")
       .append("id=" + String.valueOf(getId()) + ", ")
-      .append("farmID=" + String.valueOf(getFarmId()) + ", ")
+      .append("userID=" + String.valueOf(getUserId()) + ", ")
       .append("name=" + String.valueOf(getName()) + ", ")
       .append("price=" + String.valueOf(getPrice()) + ", ")
       .append("quantity=" + String.valueOf(getQuantity()) + ", ")
@@ -109,7 +109,7 @@ public final class Product implements Model {
       .toString();
   }
   
-  public static FarmIdStep builder() {
+  public static UserIdStep builder() {
       return new Builder();
   }
   
@@ -122,7 +122,7 @@ public final class Product implements Model {
    * @return an instance of this model with only ID populated
    * @throws IllegalArgumentException Checks that ID is in the proper format
    */
-  public static Product justId(String id) {
+  public static Item justId(String id) {
     try {
       UUID.fromString(id); // Check that ID is in the UUID format - if not an exception is thrown
     } catch (Exception exception) {
@@ -132,7 +132,7 @@ public final class Product implements Model {
               "creating a new object, use the standard builder method and leave the ID field blank."
       );
     }
-    return new Product(
+    return new Item(
       id,
       null,
       null,
@@ -144,14 +144,14 @@ public final class Product implements Model {
   
   public CopyOfBuilder copyOfBuilder() {
     return new CopyOfBuilder(id,
-      farmID,
+      userID,
       name,
       price,
       quantity,
       image);
   }
-  public interface FarmIdStep {
-    NameStep farmId(String farmId);
+  public interface UserIdStep {
+    NameStep userId(String userId);
   }
   
 
@@ -176,25 +176,25 @@ public final class Product implements Model {
   
 
   public interface BuildStep {
-    Product build();
+    Item build();
     BuildStep id(String id) throws IllegalArgumentException;
   }
   
 
-  public static class Builder implements FarmIdStep, NameStep, PriceStep, QuantityStep, ImageStep, BuildStep {
+  public static class Builder implements UserIdStep, NameStep, PriceStep, QuantityStep, ImageStep, BuildStep {
     private String id;
-    private String farmID;
+    private String userID;
     private String name;
     private String price;
     private String quantity;
     private String image;
     @Override
-     public Product build() {
+     public Item build() {
         String id = this.id != null ? this.id : UUID.randomUUID().toString();
         
-        return new Product(
+        return new Item(
           id,
-          farmID,
+          userID,
           name,
           price,
           quantity,
@@ -202,9 +202,9 @@ public final class Product implements Model {
     }
     
     @Override
-     public NameStep farmId(String farmId) {
-        Objects.requireNonNull(farmId);
-        this.farmID = farmId;
+     public NameStep userId(String userId) {
+        Objects.requireNonNull(userId);
+        this.userID = userId;
         return this;
     }
     
@@ -259,9 +259,9 @@ public final class Product implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String farmId, String name, String price, String quantity, String image) {
+    private CopyOfBuilder(String id, String userId, String name, String price, String quantity, String image) {
       super.id(id);
-      super.farmId(farmId)
+      super.userId(userId)
         .name(name)
         .price(price)
         .quantity(quantity)
@@ -269,8 +269,8 @@ public final class Product implements Model {
     }
     
     @Override
-     public CopyOfBuilder farmId(String farmId) {
-      return (CopyOfBuilder) super.farmId(farmId);
+     public CopyOfBuilder userId(String userId) {
+      return (CopyOfBuilder) super.userId(userId);
     }
     
     @Override

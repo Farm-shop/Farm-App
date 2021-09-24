@@ -1,12 +1,10 @@
-type Farm @model
-@key(name: "byUser", fields: ["userID", "name"]) {
+type Farm @model{
   id:ID!
   userID:ID!
   name:String!
   products:[Product] @connection(keyName: "byFarm", fields: ["id"])
 }
-type User @model
-@key(name: "byProduct", fields: ["productID", "name","phone","longitude","latitude","label"]){
+type User @model{
   id:ID!
   productID:ID!
   name:String!
@@ -14,7 +12,9 @@ type User @model
   longitude:String!
   latitude:String!
   label:String!
-  farms:[Farm] @connection(keyName: "byUser", fields: ["id"])
+  items:[Item] @connection(keyName: "byUser", fields: ["id"])
+
+
 
 }
 type Product @model
@@ -25,5 +25,16 @@ type Product @model
   price:String!
   quantity:String!
   image:String!
-  users:[User] @connection(keyName: "byProduct", fields: ["id"])
+
 }
+type Item @model
+@key(name: "byUser", fields: ["userID", "name","price","quantity","image"]){
+  id:ID!
+  userID:ID!
+  name:String!
+  price:String!
+  quantity:String!
+  image:String!
+
+}
+

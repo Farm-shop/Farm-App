@@ -19,7 +19,6 @@ import static com.amplifyframework.core.model.query.predicate.QueryField.field;
 /** This is an auto generated class representing the Farm type in your schema. */
 @SuppressWarnings("all")
 @ModelConfig(pluralName = "Farms")
-@Index(name = "byUser", fields = {"userID","name"})
 public final class Farm implements Model {
   public static final QueryField ID = field("id");
   public static final QueryField USER_ID = field("userID");

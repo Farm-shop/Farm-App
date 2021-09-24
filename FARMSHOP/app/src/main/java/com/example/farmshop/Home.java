@@ -8,6 +8,9 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.VideoView;
 
+import com.amplifyframework.auth.cognito.AWSCognitoAuthPlugin;
+import com.amplifyframework.core.Amplify;
+
 public class Home extends AppCompatActivity {
 
     @Override
@@ -29,5 +32,31 @@ public class Home extends AppCompatActivity {
             Intent starProductPage=new Intent(Home.this,ProductPage.class);
             startActivity(starProductPage);
         });
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+
+    //for code in authotincation
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == AWSCognitoAuthPlugin.WEB_UI_SIGN_IN_ACTIVITY_CODE) {
+            Amplify.Auth.handleWebUISignInResponse(data);
+        }
     }
 }
