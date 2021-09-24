@@ -36,6 +36,7 @@ public final class Farm implements Model {
   }
   
   public String getName() {
+
       return name;
   }
   
