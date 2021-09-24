@@ -29,5 +29,11 @@ public class Home extends AppCompatActivity {
             Intent starProductPage=new Intent(Home.this,ProductPage.class);
             startActivity(starProductPage);
         });
+
+        Button button=findViewById(R.id.button2);
+        button.setOnClickListener((v)->{
+            Intent intent=new Intent(Home.this,LogIn.class);
+            startActivity(intent);
+        });
     }
 }

@@ -10,6 +10,11 @@
       "StackName": "amplify-farmshop-devfarms-223736",
       "StackId": "arn:aws:cloudformation:us-east-1:383631959188:stack/amplify-farmshop-devfarms-223736/b7b7f270-1ca5-11ec-90c2-0ee7c982256b",
       "AmplifyAppId": "d1b2vtbdj1oorx"
+    },
+    "categories": {
+      "auth": {
+        "farmshop3d24971a": {}
+      }
     }
   }
 }
