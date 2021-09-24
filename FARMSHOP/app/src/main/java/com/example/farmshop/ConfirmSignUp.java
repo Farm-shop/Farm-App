@@ -1,4 +1,4 @@
-package com.example.farmshop.Authentication;
+package com.example.farmshop;
 
 import android.os.Bundle;
 import android.util.Log;

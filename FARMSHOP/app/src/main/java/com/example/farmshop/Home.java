@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.VideoView;
 
@@ -22,6 +23,14 @@ public class Home extends AppCompatActivity {
         Uri uri = Uri.parse(videopath);
         videoView.setVideoURI(uri);
         videoView.start();
+
+//sign in
+        Amplify.Auth.signIn(
+                "username",
+                "password",
+                result -> Log.i("AuthQuickstart", result.isSignInComplete() ? "Sign in succeeded" : "Sign in not complete"),
+                error -> Log.e("AuthQuickstart", error.toString())
+        );
     }
 
     @Override

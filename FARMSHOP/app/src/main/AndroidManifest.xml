@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FARMSHOP">
         <activity
+            android:name=".SignUp"
+            android:exported="true" />
+        <activity
             android:name=".CartPage"
             android:exported="true" />
         <activity
