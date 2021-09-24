@@ -59,25 +59,43 @@ public class SignIn extends AppCompatActivity {
         Button signUp = findViewById(R.id.signUpButton);
 
         Button signInButton = findViewById(R.id.signInButtonInSignPage);
+        EditText name = findViewById(R.id.nameSignIn);
+        EditText passWord = findViewById(R.id.passwordSignIn);
+
 
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent intent = new Intent(SignIn.this, SignUp.class);
                 startActivity(intent);
             }
         });
 
-        EditText name = findViewById(R.id.nameSignIn);
-        EditText passWord = findViewById(R.id.passwordSignIn);
-
 
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Amplify.Auth.signIn(
+                        name.getText().toString(),
+                        passWord.getText().toString(),
+                        result -> {
+                            if (result.isSignInComplete()) {
+                                handler2();
+                                startActivity(intent);
+                            } else {
+                                System.out.println("ERROR!");
+                            }
+                        },
+                        error -> {
+                            handler();
+                            Log.e("AuthQuickstart", error.toString());
+                        }
 
-                signInMethod(name.getText().toString(), passWord.getText().toString());
+                );
+
             }
+
         });
 
 
@@ -85,38 +103,38 @@ public class SignIn extends AppCompatActivity {
 
 
 
-    public void signInMethod(String userName, String passWord) {
-        Intent intent = new Intent(SignIn.this, Home.class);
-
-        System.out.println(userName);
-
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(SignIn.this);
-        SharedPreferences.Editor sharedPreferenceEditor = sharedPreferences.edit();
-
-        sharedPreferenceEditor.putString("userRegester", userName);
-        sharedPreferenceEditor.apply();
-
-
-        Amplify.Auth.signIn(
-                userName,
-                passWord,
-                result -> {
-                    if (result.isSignInComplete()) {
-                        handler2();
-                        startActivity(intent);
-                    } else {
-                        System.out.println("ERROR!");
-                    }
-                },
-                error -> {
-                    handler();
-                    Log.e("AuthQuickstart", error.toString());
-                }
-        );
-
-
-
-    }
+//    public void signInMethod(String userName, String passWord) {
+//
+//        Intent intent = new Intent(SignIn.this, Home.class);
+//        System.out.println(userName);
+//
+//        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(SignIn.this);
+//        SharedPreferences.Editor sharedPreferenceEditor = sharedPreferences.edit();
+//
+//        sharedPreferenceEditor.putString("userRegester", userName);
+//        sharedPreferenceEditor.apply();
+//
+//
+//        Amplify.Auth.signIn(
+//                userName,
+//                passWord,
+//                result -> {
+//                    if (result.isSignInComplete()) {
+//                        handler2();
+//                        startActivity(intent);
+//                    } else {
+//                        System.out.println("ERROR!");
+//                    }
+//                },
+//                error -> {
+//                    handler();
+//                    Log.e("AuthQuickstart", error.toString());
+//                }
+//        );
+//
+//
+//
+//    }
 
     public void handler() {
         new Handler(Looper.getMainLooper()).post(new Runnable() {

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.VideoView;
 
@@ -18,27 +19,44 @@ public class Home extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        VideoView videoView=findViewById(R.id.homeVideo);
-        String videopath ="android.resource://com.example.farmshop/"+R.raw.home ;
+        VideoView videoView = findViewById(R.id.homeVideo);
+        String videopath = "android.resource://com.example.farmshop/" + R.raw.home;
         Uri uri = Uri.parse(videopath);
         videoView.setVideoURI(uri);
         videoView.start();
 
-//sign in
-        Amplify.Auth.signIn(
-                "username",
-                "password",
-                result -> Log.i("AuthQuickstart", result.isSignInComplete() ? "Sign in succeeded" : "Sign in not complete"),
-                error -> Log.e("AuthQuickstart", error.toString())
-        );
+       //sign in
+//        Amplify.Auth.signIn(
+//                "username",
+//                "password",
+//                result -> Log.i("AuthQuickstart", result.isSignInComplete() ? "Sign in succeeded" : "Sign in not complete"),
+//                error -> Log.e("AuthQuickstart", error.toString())
+//        );
+
+        //logout
+//        Button logOutBtn= findViewById(R.id.logOutButton);
+//        logOutBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Amplify.Auth.signOut(
+//                        () ->{
+//                            Log.i("AuthQuickstart", "Signed out successfully");
+//                        } ,
+//                        error -> Log.e("AuthQuickstart", error.toString())
+//                );
+//
+//                Intent intent = new Intent(Home.this , SignIn.class);
+//                startActivity(intent);
+//            }
+//        });
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        Button getStart=findViewById(R.id.getStarted);
-        getStart.setOnClickListener((v)->{
-            Intent starProductPage=new Intent(Home.this,ProductPage.class);
+        Button getStart = findViewById(R.id.getStarted);
+        getStart.setOnClickListener((v) -> {
+            Intent starProductPage = new Intent(Home.this, ProductPage.class);
             startActivity(starProductPage);
         });
     }
