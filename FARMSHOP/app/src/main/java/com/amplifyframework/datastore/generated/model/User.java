@@ -19,7 +19,6 @@ import static com.amplifyframework.core.model.query.predicate.QueryField.field;
 /** This is an auto generated class representing the User type in your schema. */
 @SuppressWarnings("all")
 @ModelConfig(pluralName = "Users")
-@Index(name = "byProduct", fields = {"productID","name","phone","longitude","latitude","label"})
 public final class User implements Model {
   public static final QueryField ID = field("id");
   public static final QueryField PRODUCT_ID = field("productID");
@@ -35,7 +34,7 @@ public final class User implements Model {
   private final @ModelField(targetType="String", isRequired = true) String longitude;
   private final @ModelField(targetType="String", isRequired = true) String latitude;
   private final @ModelField(targetType="String", isRequired = true) String label;
-  private final @ModelField(targetType="Farm") @HasMany(associatedWith = "userID", type = Farm.class) List<Farm> farms = null;
+  private final @ModelField(targetType="Item") @HasMany(associatedWith = "userID", type = Item.class) List<Item> items = null;
   public String getId() {
       return id;
   }
@@ -64,8 +63,8 @@ public final class User implements Model {
       return label;
   }
   
-  public List<Farm> getFarms() {
-      return farms;
+  public List<Item> getItems() {
+      return items;
   }
   
   private User(String id, String productID, String name, String phone, String longitude, String latitude, String label) {
