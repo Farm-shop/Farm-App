@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.amplifyframework.auth.AuthUserAttributeKey;
 import com.amplifyframework.auth.options.AuthSignUpOptions;
@@ -26,12 +27,12 @@ public class SignUp extends AppCompatActivity {
 
         EditText name = findViewById(R.id.editName);
         EditText email = findViewById(R.id.emailInSignUpPage);
-        EditText passWord = findViewById(R.id.passwordsignupediting);
+        EditText passWord = findViewById(R.id.latatuideView);
         EditText phone = findViewById(R.id.editPhone);
         EditText location = findViewById(R.id.editLocation);
 
-//        EditText longitude = findViewById(R.id.passWordInSignUpPage);
-//        EditText latitude = findViewById(R.id.passWordInSignUpPage);
+        TextView longitude = findViewById(R.id.viewLangutide);
+        TextView latitude = findViewById(R.id.latatuideView);
 
 
         Button button = findViewById(R.id.buttonSignUp);
