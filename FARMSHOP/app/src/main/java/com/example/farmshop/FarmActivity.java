@@ -21,8 +21,10 @@ public class FarmActivity extends AppCompatActivity {
         super.onStart();
         FloatingActionButton addProduct=findViewById(R.id.addProduct);
         addProduct.setOnClickListener((v)->{
+            System.out.println("dddddddddddddddddddddddddddddddd");
             Intent intent=new Intent(FarmActivity.this,AddProduct.class);
             startActivity(intent);
+            System.out.println("dddddddddddddddddddddddddddddddd@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
         });
     }
 }
