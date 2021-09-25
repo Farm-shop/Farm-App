@@ -24,7 +24,7 @@ public class LogUp extends AppCompatActivity {
         EditText username = findViewById(R.id.editName);
         EditText email = findViewById(R.id.emailInSignUpPage);
         EditText password = findViewById(R.id.latatuideView);
-
+        EditText lable=findViewById(R.id.labelAut);
         Button button = findViewById(R.id.buttonSignUp);
         button.setOnClickListener((v)->{
             AuthSignUpOptions options = AuthSignUpOptions.builder()

@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FARMSHOP">
         <activity
+            android:name=".FarmActivity"
+            android:exported="true" />
+        <activity
             android:name=".Confirming"
             android:exported="true" />
         <activity
