@@ -37,37 +37,7 @@ public class ProductPage extends AppCompatActivity {
         singOut.setOnClickListener((v)->{
             signOut();
         });
-        RecyclerView allProductRecyclerView=findViewById(R.id.recyclerViewProductOfUser);
-        Handler handler = new Handler(Looper.getMainLooper(),
-                new Handler.Callback() {
-                    @Override
-                    public boolean handleMessage(@NonNull Message msg) {
-                        allProductRecyclerView.getAdapter().notifyDataSetChanged();
-                        return false;
-                    }
-                });
-        ArrayList<Product> allProduct=new ArrayList<Product>();
-        Amplify.API.query(
-                ModelQuery.list(Product.class),
-
-                response -> {
-//                    System.out.println(response+"------------------------------------------------");
-                    for (Product product : response.getData()) {
-//                        if(todo.getTeamId().equals(teamId)){
-                            Log.i("MyAmplifyApp", product.getName());
-                            Log.i("MyAmplifyApp", product.getPrice());
-                            allProduct.add(product);
-//                            System.out.println(allTasks+"+++++++++++++++++++++++++++++++++++++++");
-//                        }
-
-                    }
-                    handler.sendEmptyMessage(1);
-//                    System.out.println("**********************************************");
-                },
-                error -> Log.e("MyAmplifyApp", "Query failure", error)
-        );
-        allProductRecyclerView.setLayoutManager(new GridLayoutManager(getApplicationContext(),3));
-        allProductRecyclerView.setAdapter(new ProductAdapter(allProduct));
+        renderOfProduct();
 
         BottomNavigationItemView cart=findViewById(R.id.page_2);
         Amplify.Auth.fetchAuthSession(
@@ -108,5 +78,38 @@ public class ProductPage extends AppCompatActivity {
         );
         Intent intent=new Intent(ProductPage.this,Home.class);
         startActivity(intent);
+    }
+
+    private void renderOfProduct(){
+        RecyclerView allProductRecyclerView=findViewById(R.id.recyclerViewProductOfUser);
+        Handler handler = new Handler(Looper.getMainLooper(),
+                new Handler.Callback() {
+                    @Override
+                    public boolean handleMessage(@NonNull Message msg) {
+                        allProductRecyclerView.getAdapter().notifyDataSetChanged();
+                        return false;
+                    }
+                });
+        ArrayList<Product> allProduct=new ArrayList<Product>();
+        Amplify.API.query(
+                ModelQuery.list(Product.class),
+
+                response -> {
+
+                    for (Product product : response.getData()) {
+//                        if(todo.getTeamId().equals(teamId)){
+                        Log.i("MyAmplifyApp", product.getName());
+                        Log.i("MyAmplifyApp", product.getPrice());
+                        allProduct.add(product);
+
+//                        }
+
+                    }
+                    handler.sendEmptyMessage(1);
+                },
+                error -> Log.e("MyAmplifyApp", "Query failure", error)
+        );
+        allProductRecyclerView.setLayoutManager(new GridLayoutManager(getApplicationContext(),3));
+        allProductRecyclerView.setAdapter(new ProductAdapter(allProduct));
     }
 }
