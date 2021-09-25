@@ -1,6 +1,5 @@
 package com.amplifyframework.datastore.generated.model;
 
-import com.amplifyframework.core.model.annotations.HasMany;
 
 import java.util.List;
 import java.util.UUID;
@@ -21,33 +20,34 @@ import static com.amplifyframework.core.model.query.predicate.QueryField.field;
 @ModelConfig(pluralName = "Farms")
 public final class Farm implements Model {
   public static final QueryField ID = field("id");
-  public static final QueryField USER_ID = field("userID");
+  public static final QueryField USER_SIGN_ID = field("userSignId");
   public static final QueryField NAME = field("name");
+  public static final QueryField PHONE = field("phone");
   private final @ModelField(targetType="ID", isRequired = true) String id;
-  private final @ModelField(targetType="ID", isRequired = true) String userID;
+  private final @ModelField(targetType="String", isRequired = true) String userSignId;
   private final @ModelField(targetType="String", isRequired = true) String name;
-  private final @ModelField(targetType="Product") @HasMany(associatedWith = "farmID", type = Product.class) List<Product> products = null;
+  private final @ModelField(targetType="String", isRequired = true) String phone;
   public String getId() {
       return id;
   }
   
-  public String getUserId() {
-      return userID;
+  public String getUserSignId() {
+      return userSignId;
   }
   
   public String getName() {
-
       return name;
   }
   
-  public List<Product> getProducts() {
-      return products;
+  public String getPhone() {
+      return phone;
   }
   
-  private Farm(String id, String userID, String name) {
+  private Farm(String id, String userSignId, String name, String phone) {
     this.id = id;
-    this.userID = userID;
+    this.userSignId = userSignId;
     this.name = name;
+    this.phone = phone;
   }
   
   @Override
@@ -59,8 +59,9 @@ public final class Farm implements Model {
       } else {
       Farm farm = (Farm) obj;
       return ObjectsCompat.equals(getId(), farm.getId()) &&
-              ObjectsCompat.equals(getUserId(), farm.getUserId()) &&
-              ObjectsCompat.equals(getName(), farm.getName());
+              ObjectsCompat.equals(getUserSignId(), farm.getUserSignId()) &&
+              ObjectsCompat.equals(getName(), farm.getName()) &&
+              ObjectsCompat.equals(getPhone(), farm.getPhone());
       }
   }
   
@@ -68,8 +69,9 @@ public final class Farm implements Model {
    public int hashCode() {
     return new StringBuilder()
       .append(getId())
-      .append(getUserId())
+      .append(getUserSignId())
       .append(getName())
+      .append(getPhone())
       .toString()
       .hashCode();
   }
@@ -79,13 +81,14 @@ public final class Farm implements Model {
     return new StringBuilder()
       .append("Farm {")
       .append("id=" + String.valueOf(getId()) + ", ")
-      .append("userID=" + String.valueOf(getUserId()) + ", ")
-      .append("name=" + String.valueOf(getName()))
+      .append("userSignId=" + String.valueOf(getUserSignId()) + ", ")
+      .append("name=" + String.valueOf(getName()) + ", ")
+      .append("phone=" + String.valueOf(getPhone()))
       .append("}")
       .toString();
   }
   
-  public static UserIdStep builder() {
+  public static UserSignIdStep builder() {
       return new Builder();
   }
   
@@ -111,22 +114,29 @@ public final class Farm implements Model {
     return new Farm(
       id,
       null,
+      null,
       null
     );
   }
   
   public CopyOfBuilder copyOfBuilder() {
     return new CopyOfBuilder(id,
-      userID,
-      name);
+      userSignId,
+      name,
+      phone);
   }
-  public interface UserIdStep {
-    NameStep userId(String userId);
+  public interface UserSignIdStep {
+    NameStep userSignId(String userSignId);
   }
   
 
   public interface NameStep {
-    BuildStep name(String name);
+    PhoneStep name(String name);
+  }
+  
+
+  public interface PhoneStep {
+    BuildStep phone(String phone);
   }
   
 
@@ -136,31 +146,40 @@ public final class Farm implements Model {
   }
   
 
-  public static class Builder implements UserIdStep, NameStep, BuildStep {
+  public static class Builder implements UserSignIdStep, NameStep, PhoneStep, BuildStep {
     private String id;
-    private String userID;
+    private String userSignId;
     private String name;
+    private String phone;
     @Override
      public Farm build() {
         String id = this.id != null ? this.id : UUID.randomUUID().toString();
         
         return new Farm(
           id,
-          userID,
-          name);
+          userSignId,
+          name,
+          phone);
     }
     
     @Override
-     public NameStep userId(String userId) {
-        Objects.requireNonNull(userId);
-        this.userID = userId;
+     public NameStep userSignId(String userSignId) {
+        Objects.requireNonNull(userSignId);
+        this.userSignId = userSignId;
         return this;
     }
     
     @Override
-     public BuildStep name(String name) {
+     public PhoneStep name(String name) {
         Objects.requireNonNull(name);
         this.name = name;
+        return this;
+    }
+    
+    @Override
+     public BuildStep phone(String phone) {
+        Objects.requireNonNull(phone);
+        this.phone = phone;
         return this;
     }
     
@@ -187,20 +206,26 @@ public final class Farm implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String userId, String name) {
+    private CopyOfBuilder(String id, String userSignId, String name, String phone) {
       super.id(id);
-      super.userId(userId)
-        .name(name);
+      super.userSignId(userSignId)
+        .name(name)
+        .phone(phone);
     }
     
     @Override
-     public CopyOfBuilder userId(String userId) {
-      return (CopyOfBuilder) super.userId(userId);
+     public CopyOfBuilder userSignId(String userSignId) {
+      return (CopyOfBuilder) super.userSignId(userSignId);
     }
     
     @Override
      public CopyOfBuilder name(String name) {
       return (CopyOfBuilder) super.name(name);
+    }
+    
+    @Override
+     public CopyOfBuilder phone(String phone) {
+      return (CopyOfBuilder) super.phone(phone);
     }
   }
   

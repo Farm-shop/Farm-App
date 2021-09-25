@@ -10,6 +10,7 @@ import android.widget.EditText;
 
 import com.amplifyframework.api.graphql.model.ModelMutation;
 import com.amplifyframework.core.Amplify;
+import com.amplifyframework.datastore.generated.model.Farm;
 import com.amplifyframework.datastore.generated.model.User;
 
 public class Confirming extends AppCompatActivity {
@@ -26,10 +27,13 @@ public class Confirming extends AppCompatActivity {
         Intent intent = getIntent();
         String username = intent.getExtras().getString("Name");
         String id= intent.getExtras().getString("Id");
+        String phone= intent.getExtras().getString("Phone");
         Button user=findViewById(R.id.userType);
         user.setOnClickListener((b)->{
             User users = User.builder()
                     .userSignId(id)
+                    .name(username)
+                    .phone(phone)
                     .label("user")
                     .build();
                             Amplify.API.mutate(ModelMutation.create(users),
@@ -42,9 +46,22 @@ public class Confirming extends AppCompatActivity {
         farmer.setOnClickListener((b)->{
             User users = User.builder()
                     .userSignId(id)
+                    .name(username)
+                    .phone(phone)
                     .label("farmer")
                     .build();
             Amplify.API.mutate(ModelMutation.create(users),
+                    response ->Log.i("MyAmplifyApp", "Todo with id: " + response.getData().getId()),
+                    error -> {
+                        Log.e("MyAmplifyApp", "Create failed", error);
+                    }
+            );
+            Farm farm = Farm.builder()
+                    .userSignId(id)
+                    .name(username)
+                    .phone(phone)
+                    .build();
+            Amplify.API.mutate(ModelMutation.create(farm),
                     response ->Log.i("MyAmplifyApp", "Todo with id: " + response.getData().getId()),
                     error -> {
                         Log.e("MyAmplifyApp", "Create failed", error);

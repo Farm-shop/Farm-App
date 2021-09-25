@@ -21,9 +21,13 @@ import static com.amplifyframework.core.model.query.predicate.QueryField.field;
 public final class User implements Model {
   public static final QueryField ID = field("id");
   public static final QueryField USER_SIGN_ID = field("userSignId");
+  public static final QueryField NAME = field("name");
+  public static final QueryField PHONE = field("phone");
   public static final QueryField LABEL = field("label");
   private final @ModelField(targetType="ID", isRequired = true) String id;
   private final @ModelField(targetType="String", isRequired = true) String userSignId;
+  private final @ModelField(targetType="String", isRequired = true) String name;
+  private final @ModelField(targetType="String", isRequired = true) String phone;
   private final @ModelField(targetType="String", isRequired = true) String label;
   public String getId() {
       return id;
@@ -33,13 +37,23 @@ public final class User implements Model {
       return userSignId;
   }
   
+  public String getName() {
+      return name;
+  }
+  
+  public String getPhone() {
+      return phone;
+  }
+  
   public String getLabel() {
       return label;
   }
   
-  private User(String id, String userSignId, String label) {
+  private User(String id, String userSignId, String name, String phone, String label) {
     this.id = id;
     this.userSignId = userSignId;
+    this.name = name;
+    this.phone = phone;
     this.label = label;
   }
   
@@ -53,6 +67,8 @@ public final class User implements Model {
       User user = (User) obj;
       return ObjectsCompat.equals(getId(), user.getId()) &&
               ObjectsCompat.equals(getUserSignId(), user.getUserSignId()) &&
+              ObjectsCompat.equals(getName(), user.getName()) &&
+              ObjectsCompat.equals(getPhone(), user.getPhone()) &&
               ObjectsCompat.equals(getLabel(), user.getLabel());
       }
   }
@@ -62,6 +78,8 @@ public final class User implements Model {
     return new StringBuilder()
       .append(getId())
       .append(getUserSignId())
+      .append(getName())
+      .append(getPhone())
       .append(getLabel())
       .toString()
       .hashCode();
@@ -73,6 +91,8 @@ public final class User implements Model {
       .append("User {")
       .append("id=" + String.valueOf(getId()) + ", ")
       .append("userSignId=" + String.valueOf(getUserSignId()) + ", ")
+      .append("name=" + String.valueOf(getName()) + ", ")
+      .append("phone=" + String.valueOf(getPhone()) + ", ")
       .append("label=" + String.valueOf(getLabel()))
       .append("}")
       .toString();
@@ -104,6 +124,8 @@ public final class User implements Model {
     return new User(
       id,
       null,
+      null,
+      null,
       null
     );
   }
@@ -111,10 +133,22 @@ public final class User implements Model {
   public CopyOfBuilder copyOfBuilder() {
     return new CopyOfBuilder(id,
       userSignId,
+      name,
+      phone,
       label);
   }
   public interface UserSignIdStep {
-    LabelStep userSignId(String userSignId);
+    NameStep userSignId(String userSignId);
+  }
+  
+
+  public interface NameStep {
+    PhoneStep name(String name);
+  }
+  
+
+  public interface PhoneStep {
+    LabelStep phone(String phone);
   }
   
 
@@ -129,9 +163,11 @@ public final class User implements Model {
   }
   
 
-  public static class Builder implements UserSignIdStep, LabelStep, BuildStep {
+  public static class Builder implements UserSignIdStep, NameStep, PhoneStep, LabelStep, BuildStep {
     private String id;
     private String userSignId;
+    private String name;
+    private String phone;
     private String label;
     @Override
      public User build() {
@@ -140,13 +176,29 @@ public final class User implements Model {
         return new User(
           id,
           userSignId,
+          name,
+          phone,
           label);
     }
     
     @Override
-     public LabelStep userSignId(String userSignId) {
+     public NameStep userSignId(String userSignId) {
         Objects.requireNonNull(userSignId);
         this.userSignId = userSignId;
+        return this;
+    }
+    
+    @Override
+     public PhoneStep name(String name) {
+        Objects.requireNonNull(name);
+        this.name = name;
+        return this;
+    }
+    
+    @Override
+     public LabelStep phone(String phone) {
+        Objects.requireNonNull(phone);
+        this.phone = phone;
         return this;
     }
     
@@ -180,15 +232,27 @@ public final class User implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String userSignId, String label) {
+    private CopyOfBuilder(String id, String userSignId, String name, String phone, String label) {
       super.id(id);
       super.userSignId(userSignId)
+        .name(name)
+        .phone(phone)
         .label(label);
     }
     
     @Override
      public CopyOfBuilder userSignId(String userSignId) {
       return (CopyOfBuilder) super.userSignId(userSignId);
+    }
+    
+    @Override
+     public CopyOfBuilder name(String name) {
+      return (CopyOfBuilder) super.name(name);
+    }
+    
+    @Override
+     public CopyOfBuilder phone(String phone) {
+      return (CopyOfBuilder) super.phone(phone);
     }
     
     @Override

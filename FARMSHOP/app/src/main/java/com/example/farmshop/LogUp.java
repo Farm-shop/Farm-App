@@ -26,6 +26,7 @@ public class LogUp extends AppCompatActivity {
         EditText username = findViewById(R.id.editName);
         EditText email = findViewById(R.id.emailInSignUpPage);
         EditText password = findViewById(R.id.latatuideView);
+        EditText phone = findViewById(R.id.editPhonNumber);
         Button button = findViewById(R.id.buttonSignUp);
         button.setOnClickListener((v)->{
             AuthSignUpOptions options = AuthSignUpOptions.builder()
@@ -38,6 +39,7 @@ public class LogUp extends AppCompatActivity {
                         Intent goToConfirmation = new Intent(LogUp.this, Confirming.class);
                         goToConfirmation.putExtra("Name", username.getText().toString());
                         goToConfirmation.putExtra("Id", result.getUser().getUserId());
+                        goToConfirmation.putExtra("Phone", phone.getText().toString());
 
                         startActivity(goToConfirmation);
                     },
