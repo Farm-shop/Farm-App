@@ -1,38 +1,38 @@
-type Farm @model{
-  id:ID!
-  userID:ID!
-  name:String!
-  products:[Product] @connection(keyName: "byFarm", fields: ["id"])
-}
+#type Farm @model{
+#  id:ID!
+#  userID:ID!
+#  name:String!
+##  products:[Product] @connection(keyName: "byFarm", fields: ["id"])
+#}
 type User @model{
   id:ID!
-  productID:ID!
-  name:String!
-  phone:String!
-  longitude:String!
-  latitude:String!
+#  productID:ID!
+#  name:String!
+#  phone:String!
+#  longitude:String!
+#  latitude:String!
   label:String!
-  items:[Item] @connection(keyName: "byUser", fields: ["id"])
+#  items:[Item] @connection(keyName: "byUser", fields: ["id"])
 }
-type Product @model
-@key(name: "byFarm", fields: ["farmID", "name","price","quantity","image"]){
-  id:ID!
-  farmID:ID!
-  name:String!
-  price:String!
-  quantity:String!
-  image:String!
-}
-type Item @model
-@key(name: "byUser", fields: ["userID", "name","price","quantity","image"]){
-  id:ID!
-  userID:ID!
-  farm:String!
-  name:String!
-  price:String!
-  quantity:String!
-  image:String!
-  staus:String!
+#type Product @model
+#@key(name: "byFarm", fields: ["farmID", "name","price","quantity","image"]){
+#  id:ID!
+#  farmID:ID!
+#  name:String!
+#  price:String!
+#  quantity:String!
+#  image:String!
+#}
+#type Item @model
+#@key(name: "byUser", fields: ["userID", "name","price","quantity","image"]){
+#  id:ID!
+#  userID:ID!
+#  farm:String!
+#  name:String!
+#  price:String!
+#  quantity:String!
+#  image:String!
+#  staus:String!
 
-}
+#}
 
