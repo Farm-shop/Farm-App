@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FARMSHOP">
         <activity
+            android:name=".AddProduct"
+            android:exported="true" />
+        <activity
             android:name=".SelectTypeUser"
             android:exported="true" />
         <activity

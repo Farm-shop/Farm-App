@@ -35,5 +35,10 @@ public class Home extends AppCompatActivity {
             Intent intent=new Intent(Home.this,LogIn.class);
             startActivity(intent);
         });
+        Button button1=findViewById(R.id.button3);
+        button1.setOnClickListener((v)->{
+            Intent intent=new Intent(Home.this,FarmActivity.class);
+            startActivity(intent);
+        });
     }
 }

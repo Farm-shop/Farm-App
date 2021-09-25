@@ -1,19 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".FarmActivity">
+<!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    tools:context=".FarmActivity"-->
+<!--    android:background="@color/white"-->
+<!--    >-->
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="148dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="40dp"
-        android:text="Farm"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+<!--&lt;!&ndash;    <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;        android:id="@+id/textView2"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_width="148dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_height="56dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_marginTop="40dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:text="Farm"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintHorizontal_bias="0.498"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintStart_toStartOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintTop_toTopOf="parent" />&ndash;&gt;-->
+
+
+<!-- -->
+
+
+
+<!--</androidx.constraintlayout.widget.ConstraintLayout>-->
+<androidx.coordinatorlayout.widget.CoordinatorLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- Note: A RecyclerView can also be used -->
+<androidx.core.widget.NestedScrollView
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:paddingBottom="100dp"
+android:clipToPadding="false">
+
+<!-- Scrollable content -->
+
+</androidx.core.widget.NestedScrollView>
+
+<com.google.android.material.bottomappbar.BottomAppBar
+android:id="@+id/bottomAppBar"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:layout_gravity="bottom"
+style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
+app:navigationIcon="@drawable/icons_cart"
+app:menu="@menu/bottom_navigation_menu"
+    />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addProduct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_anchor="@id/bottomAppBar"
+        app:srcCompat="@drawable/icons_home" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
