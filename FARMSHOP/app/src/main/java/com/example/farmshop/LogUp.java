@@ -10,9 +10,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.amplifyframework.api.graphql.model.ModelMutation;
 import com.amplifyframework.auth.AuthUserAttributeKey;
 import com.amplifyframework.auth.options.AuthSignUpOptions;
 import com.amplifyframework.core.Amplify;
+import com.amplifyframework.datastore.generated.model.User;
 
 public class LogUp extends AppCompatActivity {
 
@@ -24,7 +26,6 @@ public class LogUp extends AppCompatActivity {
         EditText username = findViewById(R.id.editName);
         EditText email = findViewById(R.id.emailInSignUpPage);
         EditText password = findViewById(R.id.latatuideView);
-        EditText lable=findViewById(R.id.labelAut);
         Button button = findViewById(R.id.buttonSignUp);
         button.setOnClickListener((v)->{
             AuthSignUpOptions options = AuthSignUpOptions.builder()
@@ -33,8 +34,11 @@ public class LogUp extends AppCompatActivity {
             Amplify.Auth.signUp(username.getText().toString(), password.getText().toString(), options,
                     result -> {
                         Log.i("AuthQuickStart", "Result: " + result.toString());
+                        System.out.println(result.getUser().getUserId());
                         Intent goToConfirmation = new Intent(LogUp.this, Confirming.class);
                         goToConfirmation.putExtra("Name", username.getText().toString());
+                        goToConfirmation.putExtra("Id", result.getUser().getUserId());
+
                         startActivity(goToConfirmation);
                     },
                     error -> {

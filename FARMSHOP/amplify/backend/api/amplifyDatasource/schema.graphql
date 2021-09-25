@@ -1,17 +1,15 @@
-#type Farm @model{
-#  id:ID!
-#  userID:ID!
-#  name:String!
-##  products:[Product] @connection(keyName: "byFarm", fields: ["id"])
-#}
+type Farm @model{
+  id:ID!
+  userSignId:String!
+  name:String!
+  phone:String!
+#  products:[Product] @connection(keyName: "byFarm", fields: ["id"])
+}
 type User @model{
   id:ID!
   userSignId:String!
-#  productID:ID!
-#  name:String!
-#  phone:String!
-#  longitude:String!
-#  latitude:String!
+  name:String!
+  phone:String!
   label:String!
 #  items:[Item] @connection(keyName: "byUser", fields: ["id"])
 }

@@ -24,32 +24,6 @@ public class SelectTypeUser extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        Button user=findViewById(R.id.userType);
-        user.setOnClickListener((v)->{
-            User users = User.builder()
-                    .label("user")
-                    .build();
-            Amplify.DataStore.save(users,
-                    saved -> Log.i("MyAmplifyApp", "Saved a post."),
-                    failure -> Log.e("MyAmplifyApp", "Save failed.", failure)
-            );
-            Intent backToSignIn=new Intent(SelectTypeUser.this,LogIn.class);
-            startActivity(backToSignIn);
-        });
-        Button farmer=findViewById(R.id.farmerType);
-        farmer.setOnClickListener((v)->{
-            User users = User.builder()
-                    .label("farmer")
-                    .build();
-            Amplify.DataStore.save(users,
-                    saved ->{
-                        Log.i("MyAmplifyApp", "Saved a post.");
-//                        users.getId()
-                    },
-                    failure -> Log.e("MyAmplifyApp", "Save failed.", failure)
-            );
-            Intent backToSignIn=new Intent(SelectTypeUser.this,LogIn.class);
-            startActivity(backToSignIn);
-        });
+
     }
 }

@@ -32,11 +32,6 @@ public class ProductPage extends AppCompatActivity {
                         Amplify.Auth.fetchUserAttributes(
                                 attributes -> {
                                     Log.i("AuthDemo", "User attributes = " + attributes.toString());
-                                    System.out.println("$$$$$$$$$$$$$$$$$$$"+attributes.toString());
-                                    System.out.println("###############################");
-                                    System.out.println(Amplify.Auth.getCurrentUser());
-                                    System.out.println("########################################");
-
                                 },
                                 error -> Log.e("AuthDemo", "Failed to fetch user attributes.", error)
                         );

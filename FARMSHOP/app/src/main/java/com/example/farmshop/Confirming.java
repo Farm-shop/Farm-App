@@ -8,7 +8,9 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.amplifyframework.api.graphql.model.ModelMutation;
 import com.amplifyframework.core.Amplify;
+import com.amplifyframework.datastore.generated.model.User;
 
 public class Confirming extends AppCompatActivity {
 
@@ -23,6 +25,33 @@ public class Confirming extends AppCompatActivity {
         //EditText username = findViewById(R.id.username);
         Intent intent = getIntent();
         String username = intent.getExtras().getString("Name");
+        String id= intent.getExtras().getString("Id");
+        Button user=findViewById(R.id.userType);
+        user.setOnClickListener((b)->{
+            User users = User.builder()
+                    .userSignId(id)
+                    .label("user")
+                    .build();
+                            Amplify.API.mutate(ModelMutation.create(users),
+                                    response -> Log.i("MyAmplifyApp", "Todo with id: " + response.getData().getId()),
+                                    error -> Log.e("MyAmplifyApp", "Create failed", error)
+                            );
+        });
+
+        Button farmer=findViewById(R.id.farmerType);
+        farmer.setOnClickListener((b)->{
+            User users = User.builder()
+                    .userSignId(id)
+                    .label("farmer")
+                    .build();
+            Amplify.API.mutate(ModelMutation.create(users),
+                    response ->Log.i("MyAmplifyApp", "Todo with id: " + response.getData().getId()),
+                    error -> {
+                        Log.e("MyAmplifyApp", "Create failed", error);
+                    }
+            );
+
+        });
         confirm.setOnClickListener((v)->{
             Amplify.Auth.confirmSignUp(
                     username,
@@ -30,7 +59,7 @@ public class Confirming extends AppCompatActivity {
                     result -> {
                         Log.i("AuthQuickstart", result.isSignUpComplete() ? "Confirm signUp succeeded" : "Confirm sign up not complete");
 //                        Intent backToSignIn = new Intent(Confirming.this, LogIn.class);
-                        Intent backToSelectType = new Intent(Confirming.this, SelectTypeUser.class);
+                        Intent backToSelectType = new Intent(Confirming.this, LogIn.class);
                         startActivity(backToSelectType);
                     },
                     error -> Log.e("AuthQuickstart", error.toString())
