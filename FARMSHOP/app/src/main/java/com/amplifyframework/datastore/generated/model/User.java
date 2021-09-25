@@ -20,19 +20,26 @@ import static com.amplifyframework.core.model.query.predicate.QueryField.field;
 @ModelConfig(pluralName = "Users")
 public final class User implements Model {
   public static final QueryField ID = field("id");
+  public static final QueryField USER_SIGN_ID = field("userSignId");
   public static final QueryField LABEL = field("label");
   private final @ModelField(targetType="ID", isRequired = true) String id;
+  private final @ModelField(targetType="String", isRequired = true) String userSignId;
   private final @ModelField(targetType="String", isRequired = true) String label;
   public String getId() {
       return id;
+  }
+  
+  public String getUserSignId() {
+      return userSignId;
   }
   
   public String getLabel() {
       return label;
   }
   
-  private User(String id, String label) {
+  private User(String id, String userSignId, String label) {
     this.id = id;
+    this.userSignId = userSignId;
     this.label = label;
   }
   
@@ -45,6 +52,7 @@ public final class User implements Model {
       } else {
       User user = (User) obj;
       return ObjectsCompat.equals(getId(), user.getId()) &&
+              ObjectsCompat.equals(getUserSignId(), user.getUserSignId()) &&
               ObjectsCompat.equals(getLabel(), user.getLabel());
       }
   }
@@ -53,6 +61,7 @@ public final class User implements Model {
    public int hashCode() {
     return new StringBuilder()
       .append(getId())
+      .append(getUserSignId())
       .append(getLabel())
       .toString()
       .hashCode();
@@ -63,12 +72,13 @@ public final class User implements Model {
     return new StringBuilder()
       .append("User {")
       .append("id=" + String.valueOf(getId()) + ", ")
+      .append("userSignId=" + String.valueOf(getUserSignId()) + ", ")
       .append("label=" + String.valueOf(getLabel()))
       .append("}")
       .toString();
   }
   
-  public static LabelStep builder() {
+  public static UserSignIdStep builder() {
       return new Builder();
   }
   
@@ -93,14 +103,21 @@ public final class User implements Model {
     }
     return new User(
       id,
+      null,
       null
     );
   }
   
   public CopyOfBuilder copyOfBuilder() {
     return new CopyOfBuilder(id,
+      userSignId,
       label);
   }
+  public interface UserSignIdStep {
+    LabelStep userSignId(String userSignId);
+  }
+  
+
   public interface LabelStep {
     BuildStep label(String label);
   }
@@ -112,8 +129,9 @@ public final class User implements Model {
   }
   
 
-  public static class Builder implements LabelStep, BuildStep {
+  public static class Builder implements UserSignIdStep, LabelStep, BuildStep {
     private String id;
+    private String userSignId;
     private String label;
     @Override
      public User build() {
@@ -121,7 +139,15 @@ public final class User implements Model {
         
         return new User(
           id,
+          userSignId,
           label);
+    }
+    
+    @Override
+     public LabelStep userSignId(String userSignId) {
+        Objects.requireNonNull(userSignId);
+        this.userSignId = userSignId;
+        return this;
     }
     
     @Override
@@ -154,9 +180,15 @@ public final class User implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String label) {
+    private CopyOfBuilder(String id, String userSignId, String label) {
       super.id(id);
-      super.label(label);
+      super.userSignId(userSignId)
+        .label(label);
+    }
+    
+    @Override
+     public CopyOfBuilder userSignId(String userSignId) {
+      return (CopyOfBuilder) super.userSignId(userSignId);
     }
     
     @Override

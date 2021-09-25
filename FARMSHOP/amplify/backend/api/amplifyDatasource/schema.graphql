@@ -6,6 +6,7 @@
 #}
 type User @model{
   id:ID!
+  userSignId:String!
 #  productID:ID!
 #  name:String!
 #  phone:String!

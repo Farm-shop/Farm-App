@@ -29,8 +29,9 @@ public class Confirming extends AppCompatActivity {
                     code.getText().toString(),
                     result -> {
                         Log.i("AuthQuickstart", result.isSignUpComplete() ? "Confirm signUp succeeded" : "Confirm sign up not complete");
-                        Intent backToSignIn = new Intent(Confirming.this, LogIn.class);
-                        startActivity(backToSignIn);
+//                        Intent backToSignIn = new Intent(Confirming.this, LogIn.class);
+                        Intent backToSelectType = new Intent(Confirming.this, SelectTypeUser.class);
+                        startActivity(backToSelectType);
                     },
                     error -> Log.e("AuthQuickstart", error.toString())
             );

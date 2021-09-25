@@ -10,7 +10,9 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.amplifyframework.api.graphql.model.ModelQuery;
 import com.amplifyframework.core.Amplify;
+import com.amplifyframework.datastore.generated.model.User;
 
 public class LogIn extends AppCompatActivity {
 
@@ -41,6 +43,17 @@ public class LogIn extends AppCompatActivity {
 
 
         });
+    }
+        private static String type;
+        private void getUserType(String id) {
+        Amplify.API.query(
+                ModelQuery.get(User.class, id),
+                response -> {
+                    Log.i("MyAmplifyApp", ((User) response.getData()).getLabel());
+                    type=((User) response.getData()).getLabel();
+                },
+                error -> Log.e("MyAmplifyApp", error.toString(), error)
+        );
     }
     void signIn(String username, String password) {
         Amplify.Auth.signIn(
