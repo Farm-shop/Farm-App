@@ -55,8 +55,7 @@ public class CartPage extends AppCompatActivity {
                     for (Item item : response.getData()) {
                         if (item.getUserId().equals(Amplify.Auth.getCurrentUser().getUserId())){
                             Log.i("MyAmplifyApp", item.getName());
-                            System.out.println("+++++++++++++++++++++++++++++");
-                            System.out.println("00000000000000000000000000");
+
                             allItem.add(item);
                         }
                     }
@@ -64,7 +63,7 @@ public class CartPage extends AppCompatActivity {
                 },
                 error -> Log.e("MyAmplifyApp", "Query failure", error)
         );
-        allItemRecyclerView.setLayoutManager(new GridLayoutManager(getApplicationContext(),3));
+        allItemRecyclerView.setLayoutManager(new GridLayoutManager(getApplicationContext(),1));
         allItemRecyclerView.setAdapter(new ItemAdapter(allItem));
     }
 }

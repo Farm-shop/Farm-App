@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -38,7 +39,7 @@ public class ProductAdapter extends  RecyclerView.Adapter<ProductAdapter.Product
         public ProductViewHolder(@NonNull View itemView) {
             super(itemView);
             this.itemView=itemView;
-            Button addToCart=itemView.findViewById(R.id.addToCartButton);
+            ImageButton addToCart=itemView.findViewById(R.id.addToCartButton);
             addToCart.setOnClickListener((v)->{
 
                 Item item=Item.builder()

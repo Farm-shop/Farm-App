@@ -12,6 +12,7 @@ import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.HorizontalScrollView;
 
 import com.amplifyframework.api.graphql.model.ModelQuery;
 import com.amplifyframework.auth.options.AuthSignOutOptions;
@@ -95,7 +96,7 @@ public class ProductPage extends AppCompatActivity {
                 ModelQuery.list(Product.class),
 
                 response -> {
-
+                    System.out.println(response+"*****************************");
                     for (Product product : response.getData()) {
                         Log.i("MyAmplifyApp", product.getName());
                         Log.i("MyAmplifyApp", product.getPrice());
