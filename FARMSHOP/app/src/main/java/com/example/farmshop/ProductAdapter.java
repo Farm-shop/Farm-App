@@ -13,6 +13,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.amplifyframework.api.graphql.model.ModelMutation;
 import com.amplifyframework.api.graphql.model.ModelQuery;
 import com.amplifyframework.core.Amplify;
 import com.amplifyframework.datastore.generated.model.Farm;
@@ -39,27 +40,22 @@ public class ProductAdapter extends  RecyclerView.Adapter<ProductAdapter.Product
             this.itemView=itemView;
             Button addToCart=itemView.findViewById(R.id.addToCartButton);
             addToCart.setOnClickListener((v)->{
-//                Item item=Item.builder()
-//                        .userId()
-//                        .name(product.getName())
-//                        .price(product.getPrice())
-//                        .quantity(product.getQuantity())
-//                        .image(product.getImage())
-//
+
+                Item item=Item.builder()
+                        .userId(Amplify.Auth.getCurrentUser().getUserId())
+                        .farmId(product.getFarmId())
+                        .name(product.getName())
+                        .price(product.getPrice())
+                        .quantity("1")
+                        .status("add")
+                        .build();
+                Amplify.API.mutate(ModelMutation.create(item),
+                        result -> Log.i("MyAmplifyApp", "Todo with id: " + result.getData().getId()),
+                        error -> {
+                            Log.e("MyAmplifyApp", "Create failed", error);
+                        }
+                );
             });
-//            Todo todo = Todo.builder()
-//                    .teamId(team)
-//                    .title(title.getText().toString())
-//                    .body(body.getText().toString())
-//                    .longitude(longut.getText().toString())
-//                    .latitude(latt.getText().toString())
-//                    .state(state.getText().toString())
-//                    .build();
-//            System.out.println("#########################");
-//            Amplify.DataStore.save(todo,
-//                    saved -> Log.i("MyAmplifyApp", "Saved a post."),
-//                    failure -> Log.e("MyAmplifyApp", "Save failed.", failure)
-//            );
         }
     }
 

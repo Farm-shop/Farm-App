@@ -18,26 +18,33 @@ import static com.amplifyframework.core.model.query.predicate.QueryField.field;
 /** This is an auto generated class representing the Item type in your schema. */
 @SuppressWarnings("all")
 @ModelConfig(pluralName = "Items")
-@Index(name = "byUser", fields = {"userID","name","price","quantity","image"})
+@Index(name = "byUser", fields = {"userID","name","price","quantity"})
+@Index(name = "byFarm", fields = {"farmID","name","price","quantity"})
 public final class Item implements Model {
   public static final QueryField ID = field("id");
   public static final QueryField USER_ID = field("userID");
+  public static final QueryField FARM_ID = field("farmID");
   public static final QueryField NAME = field("name");
   public static final QueryField PRICE = field("price");
   public static final QueryField QUANTITY = field("quantity");
-  public static final QueryField IMAGE = field("image");
+  public static final QueryField STATUS = field("status");
   private final @ModelField(targetType="ID", isRequired = true) String id;
   private final @ModelField(targetType="ID", isRequired = true) String userID;
+  private final @ModelField(targetType="ID", isRequired = true) String farmID;
   private final @ModelField(targetType="String", isRequired = true) String name;
   private final @ModelField(targetType="String", isRequired = true) String price;
   private final @ModelField(targetType="String", isRequired = true) String quantity;
-  private final @ModelField(targetType="String", isRequired = true) String image;
+  private final @ModelField(targetType="String", isRequired = true) String status;
   public String getId() {
       return id;
   }
   
   public String getUserId() {
       return userID;
+  }
+  
+  public String getFarmId() {
+      return farmID;
   }
   
   public String getName() {
@@ -52,17 +59,18 @@ public final class Item implements Model {
       return quantity;
   }
   
-  public String getImage() {
-      return image;
+  public String getStatus() {
+      return status;
   }
   
-  private Item(String id, String userID, String name, String price, String quantity, String image) {
+  private Item(String id, String userID, String farmID, String name, String price, String quantity, String status) {
     this.id = id;
     this.userID = userID;
+    this.farmID = farmID;
     this.name = name;
     this.price = price;
     this.quantity = quantity;
-    this.image = image;
+    this.status = status;
   }
   
   @Override
@@ -75,10 +83,11 @@ public final class Item implements Model {
       Item item = (Item) obj;
       return ObjectsCompat.equals(getId(), item.getId()) &&
               ObjectsCompat.equals(getUserId(), item.getUserId()) &&
+              ObjectsCompat.equals(getFarmId(), item.getFarmId()) &&
               ObjectsCompat.equals(getName(), item.getName()) &&
               ObjectsCompat.equals(getPrice(), item.getPrice()) &&
               ObjectsCompat.equals(getQuantity(), item.getQuantity()) &&
-              ObjectsCompat.equals(getImage(), item.getImage());
+              ObjectsCompat.equals(getStatus(), item.getStatus());
       }
   }
   
@@ -87,10 +96,11 @@ public final class Item implements Model {
     return new StringBuilder()
       .append(getId())
       .append(getUserId())
+      .append(getFarmId())
       .append(getName())
       .append(getPrice())
       .append(getQuantity())
-      .append(getImage())
+      .append(getStatus())
       .toString()
       .hashCode();
   }
@@ -101,10 +111,11 @@ public final class Item implements Model {
       .append("Item {")
       .append("id=" + String.valueOf(getId()) + ", ")
       .append("userID=" + String.valueOf(getUserId()) + ", ")
+      .append("farmID=" + String.valueOf(getFarmId()) + ", ")
       .append("name=" + String.valueOf(getName()) + ", ")
       .append("price=" + String.valueOf(getPrice()) + ", ")
       .append("quantity=" + String.valueOf(getQuantity()) + ", ")
-      .append("image=" + String.valueOf(getImage()))
+      .append("status=" + String.valueOf(getStatus()))
       .append("}")
       .toString();
   }
@@ -138,6 +149,7 @@ public final class Item implements Model {
       null,
       null,
       null,
+      null,
       null
     );
   }
@@ -145,13 +157,19 @@ public final class Item implements Model {
   public CopyOfBuilder copyOfBuilder() {
     return new CopyOfBuilder(id,
       userID,
+      farmID,
       name,
       price,
       quantity,
-      image);
+      status);
   }
   public interface UserIdStep {
-    NameStep userId(String userId);
+    FarmIdStep userId(String userId);
+  }
+  
+
+  public interface FarmIdStep {
+    NameStep farmId(String farmId);
   }
   
 
@@ -166,12 +184,12 @@ public final class Item implements Model {
   
 
   public interface QuantityStep {
-    ImageStep quantity(String quantity);
+    StatusStep quantity(String quantity);
   }
   
 
-  public interface ImageStep {
-    BuildStep image(String image);
+  public interface StatusStep {
+    BuildStep status(String status);
   }
   
 
@@ -181,13 +199,14 @@ public final class Item implements Model {
   }
   
 
-  public static class Builder implements UserIdStep, NameStep, PriceStep, QuantityStep, ImageStep, BuildStep {
+  public static class Builder implements UserIdStep, FarmIdStep, NameStep, PriceStep, QuantityStep, StatusStep, BuildStep {
     private String id;
     private String userID;
+    private String farmID;
     private String name;
     private String price;
     private String quantity;
-    private String image;
+    private String status;
     @Override
      public Item build() {
         String id = this.id != null ? this.id : UUID.randomUUID().toString();
@@ -195,16 +214,24 @@ public final class Item implements Model {
         return new Item(
           id,
           userID,
+          farmID,
           name,
           price,
           quantity,
-          image);
+          status);
     }
     
     @Override
-     public NameStep userId(String userId) {
+     public FarmIdStep userId(String userId) {
         Objects.requireNonNull(userId);
         this.userID = userId;
+        return this;
+    }
+    
+    @Override
+     public NameStep farmId(String farmId) {
+        Objects.requireNonNull(farmId);
+        this.farmID = farmId;
         return this;
     }
     
@@ -223,16 +250,16 @@ public final class Item implements Model {
     }
     
     @Override
-     public ImageStep quantity(String quantity) {
+     public StatusStep quantity(String quantity) {
         Objects.requireNonNull(quantity);
         this.quantity = quantity;
         return this;
     }
     
     @Override
-     public BuildStep image(String image) {
-        Objects.requireNonNull(image);
-        this.image = image;
+     public BuildStep status(String status) {
+        Objects.requireNonNull(status);
+        this.status = status;
         return this;
     }
     
@@ -259,18 +286,24 @@ public final class Item implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String userId, String name, String price, String quantity, String image) {
+    private CopyOfBuilder(String id, String userId, String farmId, String name, String price, String quantity, String status) {
       super.id(id);
       super.userId(userId)
+        .farmId(farmId)
         .name(name)
         .price(price)
         .quantity(quantity)
-        .image(image);
+        .status(status);
     }
     
     @Override
      public CopyOfBuilder userId(String userId) {
       return (CopyOfBuilder) super.userId(userId);
+    }
+    
+    @Override
+     public CopyOfBuilder farmId(String farmId) {
+      return (CopyOfBuilder) super.farmId(farmId);
     }
     
     @Override
@@ -289,8 +322,8 @@ public final class Item implements Model {
     }
     
     @Override
-     public CopyOfBuilder image(String image) {
-      return (CopyOfBuilder) super.image(image);
+     public CopyOfBuilder status(String status) {
+      return (CopyOfBuilder) super.status(status);
     }
   }
   

@@ -11,6 +11,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
+import android.widget.Button;
 
 import com.amplifyframework.api.graphql.model.ModelQuery;
 import com.amplifyframework.core.Amplify;
@@ -32,11 +33,12 @@ public class FarmActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        FloatingActionButton addProduct=findViewById(R.id.addProduct);
+        Button addProduct=findViewById(R.id.addProduct);
         addProduct.setOnClickListener((v)->{
             Intent intent=new Intent(FarmActivity.this,AddProduct.class);
             startActivity(intent);
         });
+
         renderOfProduct();
     }
     private void renderOfProduct(){
@@ -51,31 +53,16 @@ public class FarmActivity extends AppCompatActivity {
                 });
         ArrayList<Product> allProduct=new ArrayList<Product>();
         Amplify.API.query(
-                ModelQuery.list(Product.class),
-
+                ModelQuery.list(Farm.class),
                 response -> {
-
-                    for (Product product : response.getData()) {
-                        Amplify.API.query(
-                                ModelQuery.get(Farm.class, product.getFarmId()),
-                                result -> {
-                                    Log.i("MyAmplifyApp", ((Farm) result.getData()).getUserSignId());
-                                    System.out.println("0000000000000000000000000000000000000000000000000");
-                                    if(result.getData().getUserSignId().equals(Amplify.Auth.getCurrentUser().getUserId())){
-                                        System.out.println(result.getData().getUserSignId().equals(Amplify.Auth.getCurrentUser().getUserId())+"mmmmmmmmmmmmmm");
-                                        System.out.println("########################################");
-                                        Log.i("MyAmplifyApp", product.getName());
-                                        Log.i("MyAmplifyApp", product.getPrice());
-                                        System.out.println(product.toString()+"loloololololooloooooolllll");
-                                        allProduct.add(product);
-                                    }
-                                },
-                                error -> Log.e("MyAmplifyApp", error.toString(), error)
-                        );
-
+                    for (Farm farm : response.getData()) {
+                        if (farm.getUserSignId().equals(Amplify.Auth.getCurrentUser().getUserId())){
+                            Log.i("MyAmplifyApp", farm.getName());
+                            for (Product product : farm.getProducts()) {
+                                allProduct.add(product);
+                            }
+                        }
                     }
-                    System.out.println(allProduct);
-                    System.out.println("------------------------------");
                     handler.sendEmptyMessage(1);
                 },
                 error -> Log.e("MyAmplifyApp", "Query failure", error)
@@ -83,15 +70,4 @@ public class FarmActivity extends AppCompatActivity {
         allProductRecyclerView.setLayoutManager(new GridLayoutManager(getApplicationContext(),3));
         allProductRecyclerView.setAdapter(new ProductAdapter(allProduct));
     }
-//    private String farmUserId;
-//    private void getFarm(String id) {
-//        Amplify.API.query(
-//                ModelQuery.get(Farm.class, id),
-//                result -> {
-//                    Log.i("MyAmplifyApp", ((Farm) result.getData()).getUserSignId());
-//
-//                },
-//                error -> Log.e("MyAmplifyApp", error.toString(), error)
-//        );
-//    }
 }

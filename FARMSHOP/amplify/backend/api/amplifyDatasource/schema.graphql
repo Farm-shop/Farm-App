@@ -3,7 +3,8 @@ type Farm @model{
   userSignId:String!
   name:String!
   phone:String!
-#  products:[Product] @connection(keyName: "byFarm", fields: ["id"])
+  products:[Product] @connection(keyName: "byFarm", fields: ["id"])
+  items:[Item] @connection(keyName: "byFarm", fields: ["id"])
 }
 type User @model{
   id:ID!
@@ -11,7 +12,7 @@ type User @model{
   name:String!
   phone:String!
   label:String!
-#  items:[Item] @connection(keyName: "byUser", fields: ["id"])
+  items:[Item] @connection(keyName: "byUser", fields: ["id"])
 }
 type Product @model
 @key(name: "byFarm", fields: ["farmID", "name","price"]){
@@ -21,16 +22,19 @@ type Product @model
   price:String!
 #  image:String!
 }
-#type Item @model
-#@key(name: "byUser", fields: ["userID", "name","price","quantity","image"]){
-#  id:ID!
-#  userID:ID!
-#  farm:String!
-#  name:String!
-#  price:String!
-#  quantity:String!
-#  image:String!
-#  staus:String!
+type Item @model
+@key(name: "byUser", fields: ["userID", "name","price","quantity"])
+@key(name: "byFarm", fields: ["farmID", "name","price","quantity"])
 
-#}
+{
+  id:ID!
+  userID:ID!
+  farmID:ID!
+  name:String!
+  price:String!
+  quantity:String!
+#  image:String!
+  status:String!
+
+}
 

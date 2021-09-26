@@ -21,44 +21,90 @@
 
 
 <!-- -->
-
-
-
-<!--</androidx.constraintlayout.widget.ConstraintLayout>-->
-<androidx.coordinatorlayout.widget.CoordinatorLayout android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProductPage"
     android:background="@color/white"
     >
 
-    <!-- Note: A RecyclerView can also be used -->
-<!--<androidx.core.widget.NestedScrollView-->
-<!--android:layout_width="match_parent"-->
-<!--android:layout_height="match_parent"-->
-<!--android:paddingBottom="100dp"-->
-<!--android:clipToPadding="false"/>-->
 
-<com.google.android.material.bottomappbar.BottomAppBar
-android:id="@+id/bottomAppBar"
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-android:layout_gravity="bottom"
-style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
-app:navigationIcon="@drawable/icons_cart"
-app:menu="@menu/bottom_navigation_menu"
-    />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </LinearLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_navigation_menu" />
+
+    <Button
         android:id="@+id/addProduct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_anchor="@id/bottomAppBar"
-        app:srcCompat="@drawable/icons_home" />
+        android:layout_marginBottom="96dp"
+        android:text="add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewProductOfFarm"
-        android:layout_width="match_parent"
-        android:layout_height="645dp" />
+        android:layout_width="409dp"
+        android:layout_height="585dp"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp" />
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+<!--&lt;!&ndash;</androidx.constraintlayout.widget.ConstraintLayout>&ndash;&gt;-->
+<!--<androidx.coordinatorlayout.widget.CoordinatorLayout android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    android:background="@color/white"-->
+<!--    >-->
+
+<!--    &lt;!&ndash; Note: A RecyclerView can also be used &ndash;&gt;-->
+<!--&lt;!&ndash;<androidx.core.widget.NestedScrollView&ndash;&gt;-->
+<!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;android:layout_height="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;android:paddingBottom="100dp"&ndash;&gt;-->
+<!--&lt;!&ndash;android:clipToPadding="false"/>&ndash;&gt;-->
+
+<!--<com.google.android.material.bottomappbar.BottomAppBar-->
+<!--android:id="@+id/bottomAppBar"-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="wrap_content"-->
+<!--android:layout_gravity="bottom"-->
+<!--style="@style/Widget.MaterialComponents.BottomAppBar.Colored"-->
+<!--app:navigationIcon="@drawable/icons_cart"-->
+<!--app:menu="@menu/bottom_navigation_menu"-->
+<!--    />-->
+
+<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--        android:id="@+id/addProduct"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_anchor="@id/bottomAppBar"-->
+<!--        app:srcCompat="@drawable/icons_home" />-->
+
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:id="@+id/recyclerViewProductOfFarm"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="645dp" />-->
+
+<!--</androidx.coordinatorlayout.widget.CoordinatorLayout>-->

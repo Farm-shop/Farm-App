@@ -19,14 +19,14 @@ public class ProductFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    private static final String ARG_PARAM3 = "param3";
-    private static final String ARG_PARAM4 = "param4";
+//    private static final String ARG_PARAM3 = "param3";
+//    private static final String ARG_PARAM4 = "param4";
 
     // TODO: Rename and change types of parameters
     private String mName;
     private String mPrice;
-    private String mQuantity;
-    private String mImage;
+//    private String mQuantity;
+//    private String mImage;
 
     public ProductFragment() {
         // Required empty public constructor
@@ -41,13 +41,13 @@ public class ProductFragment extends Fragment {
      * @return A new instance of fragment ProductFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static ProductFragment newInstance(String param1, String param2,String param3,String param4) {
+    public static ProductFragment newInstance(String param1, String param2) {
         ProductFragment fragment = new ProductFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
-        args.putString(ARG_PARAM3, param3);
-        args.putString(ARG_PARAM4, param4);
+//        args.putString(ARG_PARAM3, param3);
+//        args.putString(ARG_PARAM4, param4);
         fragment.setArguments(args);
         return fragment;
     }
@@ -58,8 +58,8 @@ public class ProductFragment extends Fragment {
         if (getArguments() != null) {
             mName = getArguments().getString(ARG_PARAM1);
             mPrice = getArguments().getString(ARG_PARAM2);
-            mQuantity = getArguments().getString(ARG_PARAM3);
-            mImage = getArguments().getString(ARG_PARAM4);
+//            mQuantity = getArguments().getString(ARG_PARAM3);
+//            mImage = getArguments().getString(ARG_PARAM4);
         }
     }
 

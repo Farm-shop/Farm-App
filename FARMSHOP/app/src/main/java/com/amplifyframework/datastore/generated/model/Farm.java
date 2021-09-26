@@ -1,5 +1,6 @@
 package com.amplifyframework.datastore.generated.model;
 
+import com.amplifyframework.core.model.annotations.HasMany;
 
 import java.util.List;
 import java.util.UUID;
@@ -27,6 +28,8 @@ public final class Farm implements Model {
   private final @ModelField(targetType="String", isRequired = true) String userSignId;
   private final @ModelField(targetType="String", isRequired = true) String name;
   private final @ModelField(targetType="String", isRequired = true) String phone;
+  private final @ModelField(targetType="Product") @HasMany(associatedWith = "farmID", type = Product.class) List<Product> products = null;
+  private final @ModelField(targetType="Item") @HasMany(associatedWith = "farmID", type = Item.class) List<Item> items = null;
   public String getId() {
       return id;
   }
@@ -41,6 +44,14 @@ public final class Farm implements Model {
   
   public String getPhone() {
       return phone;
+  }
+  
+  public List<Product> getProducts() {
+      return products;
+  }
+  
+  public List<Item> getItems() {
+      return items;
   }
   
   private Farm(String id, String userSignId, String name, String phone) {

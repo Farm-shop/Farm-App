@@ -97,13 +97,9 @@ public class ProductPage extends AppCompatActivity {
                 response -> {
 
                     for (Product product : response.getData()) {
-//                        if(todo.getTeamId().equals(teamId)){
                         Log.i("MyAmplifyApp", product.getName());
                         Log.i("MyAmplifyApp", product.getPrice());
                         allProduct.add(product);
-
-//                        }
-
                     }
                     handler.sendEmptyMessage(1);
                 },
