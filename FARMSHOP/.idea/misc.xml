@@ -3,10 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Farm-App/FARMSHOP/app/src/main/res/drawable/edittext.xml" value="0.2203125" />
+        <entry key="..\:/Farm-App/FARMSHOP/app/src/main/res/drawable/mucard.xml" value="0.2203125" />
         <entry key="..\:/Farm-App/FARMSHOP/app/src/main/res/drawable/mybutton.xml" value="0.2203125" />
+        <entry key="..\:/Farm-App/FARMSHOP/app/src/main/res/drawable/mycard.xml" value="0.2203125" />
+        <entry key="..\:/Farm-App/FARMSHOP/app/src/main/res/drawable/round_button.xml" value="0.2046875" />
+        <entry key="..\:/Farm-App/FARMSHOP/app/src/main/res/layout/activity_add_product.xml" value="0.14" />
+        <entry key="..\:/Farm-App/FARMSHOP/app/src/main/res/layout/activity_details_of_item.xml" value="0.1408514492753623" />
         <entry key="..\:/Farm-App/FARMSHOP/app/src/main/res/layout/activity_details_of_order.xml" value="0.1" />
-        <entry key="..\:/Farm-App/FARMSHOP/app/src/main/res/layout/activity_farm.xml" value="0.1" />
-        <entry key="..\:/Farm-App/FARMSHOP/app/src/main/res/layout/activity_home.xml" value="0.1" />
+        <entry key="..\:/Farm-App/FARMSHOP/app/src/main/res/layout/activity_farm.xml" value="0.22" />
+        <entry key="..\:/Farm-App/FARMSHOP/app/src/main/res/layout/activity_home.xml" value="0.22" />
         <entry key="..\:/Farm-App/FARMSHOP/app/src/main/res/layout/activity_log_in.xml" value="0.25" />
         <entry key="..\:/Farm-App/FARMSHOP/app/src/main/res/layout/activity_log_up.xml" value="0.25" />
         <entry key="..\:/Farm-App/FARMSHOP/app/src/main/res/layout/activity_main.xml" value="0.1" />
@@ -15,7 +21,10 @@
         <entry key="..\:/Farm-App/FARMSHOP/app/src/main/res/layout/activity_product_page.xml" value="0.22" />
         <entry key="..\:/Farm-App/FARMSHOP/app/src/main/res/layout/activity_second_main.xml" value="0.14628623188405798" />
         <entry key="..\:/Farm-App/FARMSHOP/app/src/main/res/layout/activity_select_type_user.xml" value="0.1" />
-        <entry key="..\:/Farm-App/FARMSHOP/app/src/main/res/layout/fragment_product.xml" value="0.9" />
+        <entry key="..\:/Farm-App/FARMSHOP/app/src/main/res/layout/fragment_list.xml" value="0.19701086956521738" />
+        <entry key="..\:/Farm-App/FARMSHOP/app/src/main/res/layout/fragment_list2.xml" value="0.5" />
+        <entry key="..\:/Farm-App/FARMSHOP/app/src/main/res/layout/fragment_product.xml" value="0.5" />
+        <entry key="..\:/Farm-App/FARMSHOP/app/src/main/res/layout/list.xml" value="0.19701086956521738" />
         <entry key="..\:/Users/User/AndroidStudioProjects/FARMSHOP/app/src/main/res/layout/activity_cart_page.xml" value="0.2" />
         <entry key="..\:/Users/User/AndroidStudioProjects/FARMSHOP/app/src/main/res/layout/activity_home.xml" value="0.22" />
         <entry key="..\:/Users/User/AndroidStudioProjects/FARMSHOP/app/src/main/res/layout/activity_main.xml" value="0.2" />
