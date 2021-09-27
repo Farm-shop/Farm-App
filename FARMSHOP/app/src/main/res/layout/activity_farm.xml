@@ -31,17 +31,17 @@
     >
 
 
-
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
         android:layout_width="335dp"
         android:layout_height="279dp"
         app:cardCornerRadius="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
 
-        >
+        app:layout_constraintTop_toTopOf="parent">
+
 
         <LinearLayout
             android:layout_width="337dp"
@@ -50,22 +50,12 @@
 
             >
 
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/ingredients_list"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
-
-
-            <Button
-                android:layout_width="99dp"
-                android:layout_height="80dp"
-                android:background="@drawable/round_button"
-                android:gravity="center_vertical|center_horizontal"
-                android:text="hello"
-                android:textColor="#fff"
-                tools:layout_editor_absoluteX="310dp"
-                tools:layout_editor_absoluteY="65dp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -98,6 +88,16 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_navigation_menu" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="49dp"
+        android:layout_height="49dp"
+        android:background="@drawable/round_button"
+        app:layout_constraintBottom_toTopOf="@+id/cardView2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_chevron_left_24"
+        tools:layout_editor_absoluteX="143dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
