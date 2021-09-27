@@ -34,37 +34,37 @@ public class ProductPage extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        Button singOut=findViewById(R.id.singOutUser);
-        singOut.setOnClickListener((v)->{
-            signOut();
-        });
+//        Button singOut=findViewById(R.id.singOutUser);
+//        singOut.setOnClickListener((v)->{
+//            signOut();
+//        });
         renderOfProduct();
 
-        BottomNavigationItemView cart=findViewById(R.id.page_2);
-        Amplify.Auth.fetchAuthSession(
-                result ->{
-                    Log.i("AmplifyQuickstart", result.toString());
-                    if (result.isSignedIn()){
-                        Amplify.Auth.fetchUserAttributes(
-                                attributes -> {
-                                    Log.i("AuthDemo", "User attributes = " + attributes.toString());
-                                },
-                                error -> Log.e("AuthDemo", "Failed to fetch user attributes.", error)
-                        );
-
-                        cart.setOnClickListener((v)->{
-                            Intent startCart=new Intent(ProductPage.this,CartPage.class);
-                            startActivity(startCart);
-                        });
-                    }else {
-                        cart.setOnClickListener((v)->{
-                            Intent startCart=new Intent(ProductPage.this,LogIn.class);
-                            startActivity(startCart);
-                        });
-                    }
-                },
-                error -> Log.e("AmplifyQuickstart", error.toString())
-        );
+//        BottomNavigationItemView cart=findViewById(R.id.page_2);
+//        Amplify.Auth.fetchAuthSession(
+//                result ->{
+//                    Log.i("AmplifyQuickstart", result.toString());
+//                    if (result.isSignedIn()){
+//                        Amplify.Auth.fetchUserAttributes(
+//                                attributes -> {
+//                                    Log.i("AuthDemo", "User attributes = " + attributes.toString());
+//                                },
+//                                error -> Log.e("AuthDemo", "Failed to fetch user attributes.", error)
+//                        );
+//
+//                        cart.setOnClickListener((v)->{
+//                            Intent startCart=new Intent(ProductPage.this,CartPage.class);
+//                            startActivity(startCart);
+//                        });
+//                    }else {
+//                        cart.setOnClickListener((v)->{
+//                            Intent startCart=new Intent(ProductPage.this,LogIn.class);
+//                            startActivity(startCart);
+//                        });
+//                    }
+//                },
+//                error -> Log.e("AmplifyQuickstart", error.toString())
+//        );
 
 
 

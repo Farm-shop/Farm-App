@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="141dp"
     android:layout_height="185dp"
+    android:background="@color/white"
     tools:context=".ProductFragment">
 
 
@@ -19,71 +20,64 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="148dp">
+            android:layout_height="match_parent">
 
-
-            <TextView
-                android:id="@+id/farmProduct"
-                android:layout_width="62dp"
-                android:layout_height="18dp"
-                android:text="TextView"
-                android:textSize="20dp"
-                android:textColor="@color/black"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/titleProduct" />
 
             <ImageView
                 android:id="@+id/imageView8"
-                android:layout_width="wrap_content"
-                android:layout_height="76dp"
+                android:layout_width="102dp"
+                android:layout_height="72dp"
                 android:scaleType="fitCenter"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.013"
-                app:srcCompat="@drawable/icons_home" />
+                app:layout_constraintVertical_bias="0.12"
+                app:srcCompat="@drawable/tommato" />
 
             <TextView
                 android:id="@+id/titleProduct"
                 android:layout_width="98dp"
                 android:layout_height="18dp"
-                android:text="TextView"
-                android:textSize="20dp"
-                android:textColor="@color/black"
+                android:layout_marginTop="4dp"
+                android:text="Tommato"
+                android:textColor="@color/woodland"
+                android:textColorHighlight="@color/woodland"
+                android:textSize="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView8" />
-
-            <ImageButton
-                android:id="@+id/addToCartButton"
-                android:layout_width="30dp"
-                android:layout_height="29dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="20dp"
-                android:background="@android:color/transparent"
-                android:scaleType="fitStart"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:srcCompat="@drawable/icons_cart" />
 
             <TextView
                 android:id="@+id/priceProdect"
                 android:layout_width="62dp"
                 android:layout_height="18dp"
-                android:layout_marginEnd="40dp"
-                android:text="TextView"
-                android:textSize="20dp"
-                android:textColor="@color/black"
+                android:layout_marginEnd="35dp"
+                android:text="0.5 JD/KG"
+                android:textColor="@color/sushi"
+                android:textColorHighlight="@color/woodland"
+                android:textSize="7dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/farmProduct" />
+                app:layout_constraintTop_toBottomOf="@+id/titleProduct" />
+
+            <ImageButton
+                android:id="@+id/addToCartButton"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="24dp"
+                android:background="@color/white"
+                android:scaleType="centerCrop"
+                android:src="@drawable/index"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
+
 </FrameLayout>
 <!--<?xml version="1.0" encoding="utf-8"?>-->
 <!--<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"-->

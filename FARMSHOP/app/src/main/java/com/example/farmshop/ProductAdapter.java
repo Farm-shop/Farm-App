@@ -82,13 +82,13 @@ public class ProductAdapter extends  RecyclerView.Adapter<ProductAdapter.Product
         holder.product=allProduct.get(position);
 //        ImageView imageView=holder.itemView.findViewById(R.id.imageView);
         TextView title=holder.itemView.findViewById(R.id.titleProduct);
-        TextView farm=holder.itemView.findViewById(R.id.farmProduct);
+//        TextView farm=holder.itemView.findViewById(R.id.farmProduct);
         TextView price=holder.itemView.findViewById(R.id.priceProdect);
 //        imageView.setImageBitmap(BitmapFactory.decodeFile(holder.product.getImage()));
 
         title.setText(holder.product.getName());
         getFarm(holder.product.getFarmId());
-        farm.setText(farmName);
+//        farm.setText(farmName);
         price.setText("JD "+holder.product.getPrice()+"/kg");
     }
 
