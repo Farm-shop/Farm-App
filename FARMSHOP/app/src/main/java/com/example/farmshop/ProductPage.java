@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -21,6 +22,7 @@ import com.amplifyframework.datastore.generated.model.Product;
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class ProductPage extends AppCompatActivity {
@@ -34,10 +36,11 @@ public class ProductPage extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        Button singOut=findViewById(R.id.singOutUser);
-        singOut.setOnClickListener((v)->{
-            signOut();
-        });
+//        Button singOut=findViewById(R.id.singOutUser);
+//        singOut.setOnClickListener((v)->{
+//            signOut();
+//        });
+
         renderOfProduct();
 
         BottomNavigationItemView cart=findViewById(R.id.page_2);

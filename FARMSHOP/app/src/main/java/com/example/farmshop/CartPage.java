@@ -55,8 +55,9 @@ public class CartPage extends AppCompatActivity {
                     for (Item item : response.getData()) {
                         if (item.getUserId().equals(Amplify.Auth.getCurrentUser().getUserId())){
                             Log.i("MyAmplifyApp", item.getName());
-
+                            System.out.println(response+"{{{{{{{{{{{{{{{{{{{{{{{{{{");
                             allItem.add(item);
+                            System.out.println(allItem+"pppppppppppppppppppppppppppppp");
                         }
                     }
                     handler.sendEmptyMessage(1);

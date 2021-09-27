@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.amplifyframework.api.graphql.model.ModelMutation;
 import com.amplifyframework.api.graphql.model.ModelQuery;
 import com.amplifyframework.core.Amplify;
+import com.amplifyframework.core.model.query.predicate.QueryPredicate;
 import com.amplifyframework.datastore.generated.model.Farm;
 import com.amplifyframework.datastore.generated.model.Item;
 
@@ -41,20 +42,11 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
             Button updateQuntity=itemView.findViewById(R.id.plusQuntity);
             updateQuntity.setOnClickListener((v)->{
                 int numAdd= Integer.parseInt(item.getQuantity())+1;
-                System.out.println("+++++++++++++++++++++++++++++"+numAdd);
-                item.builder()
-                        .userId(Amplify.Auth.getCurrentUser().getUserId())
-                        .farmId(item.getFarmId())
-                        .name(item.getName())
-                        .price(item.getPrice())
-                        .quantity(String.valueOf(numAdd))
-                        .status("add")
-                        .build();
-                Amplify.API.mutate(ModelMutation.update(item),
+                 Item updateItem=item.copyOfBuilder().quantity(String.valueOf(numAdd)).build();
+                Amplify.API.mutate(ModelMutation.update(updateItem),
                         result ->{
-                            Log.i("MyAmplifyApp", "Todo with id: " + result.getData().getId());
-                            System.out.println("00000000000000000000000000"+result.getData().getQuantity());
-                        } ,
+                            Log.i("MyAmplifyApp", "Todo with id: " + result.getData());
+                        },
                         error -> {
                             Log.e("MyAmplifyApp", "Create failed", error);
                         }
@@ -63,39 +55,28 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
             Button decreaseQuntity=itemView.findViewById(R.id.minusQuntity);
             decreaseQuntity.setOnClickListener((v)->{
                 int numAdd= Integer.parseInt(item.getQuantity())-1;
-                System.out.println("+++++++++++++++++++++++++++++"+numAdd);
 
-                item.builder()
-                        .userId(Amplify.Auth.getCurrentUser().getUserId())
-                        .farmId(item.getFarmId())
-                        .name(item.getName())
-                        .price(item.getPrice())
-                        .quantity(String.valueOf(numAdd))
-                        .status("add")
-                        .build();
                 Amplify.API.mutate(ModelMutation.update(item),
                         result -> {
-                            System.out.println("000000000000000000000)))"+item.getQuantity());
                             Log.i("MyAmplifyApp", "Todo with id: " + result.getData().getId());
-                            System.out.println("00000000000000000000000000"+result.getData().getQuantity());
                         },
                         error -> {
                             Log.e("MyAmplifyApp", "Create failed", error);
                         }
                 );
             });
-//            Button deleteItem=itemView.findViewById(R.id.deleteItem);
-//            deleteItem.setOnClickListener((v)->{
-//                Item itemUpadte=Item.builder()
-//                        .userId(Amplify.Auth.getCurrentUser().getUserId())
-//                        .farmId(item.getFarmId())
-//                        .name(item.getName())
-//                        .price(item.getPrice())
-//                        .quantity(item.getQuantity())
-//                        .status("add")
-//                        .build();
-//                Amplify.API.mutate(ModelMutation.delete(itemUpadte));
-//            });
+            Button deleteItem=itemView.findViewById(R.id.deleteItem);
+            deleteItem.setOnClickListener((v)->{
+
+                Amplify.API.mutate(ModelMutation.delete(item),
+                        result -> {
+                            Log.i("MyAmplifyApp", "Todo with id: " + result.getData().getId());
+                        },
+                        error -> {
+                            Log.e("MyAmplifyApp", "Create failed", error);
+                        }
+                        );
+            });
 //            itemView.findViewById(R.id.fragmentProduct).setOnClickListener((v)->{
 //                Intent intent=new Intent(itemView.getContext(),DetailsOfItem.class);
 //

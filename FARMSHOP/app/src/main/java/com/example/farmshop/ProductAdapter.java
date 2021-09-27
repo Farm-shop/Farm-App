@@ -21,6 +21,7 @@ import com.amplifyframework.datastore.generated.model.Farm;
 import com.amplifyframework.datastore.generated.model.Item;
 import com.amplifyframework.datastore.generated.model.Product;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,7 +52,9 @@ public class ProductAdapter extends  RecyclerView.Adapter<ProductAdapter.Product
                         .status("add")
                         .build();
                 Amplify.API.mutate(ModelMutation.create(item),
-                        result -> Log.i("MyAmplifyApp", "Todo with id: " + result.getData().getId()),
+                        result -> {Log.i("MyAmplifyApp", "Todo with id: " + result.getData().getId());
+
+                        },
                         error -> {
                             Log.e("MyAmplifyApp", "Create failed", error);
                         }
@@ -71,19 +74,21 @@ public class ProductAdapter extends  RecyclerView.Adapter<ProductAdapter.Product
         Amplify.API.query(
                 ModelQuery.get(Farm.class, id),
                 response -> {
-                    Log.i("MyAmplifyApp", ((Farm) response.getData()).getName());
+                    Log.i("MyAmplifyApp", ((Farm) response.getData()).getId());
                     farmName=((Farm) response.getData()).getName();
                 },
                 error -> Log.e("MyAmplifyApp", error.toString(), error)
         );
+
     }
     @Override
     public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
         holder.product=allProduct.get(position);
-//        ImageView imageView=holder.itemView.findViewById(R.id.imageView);
+        ImageView imageView=holder.itemView.findViewById(R.id.imageView);
         TextView title=holder.itemView.findViewById(R.id.titleProduct);
         TextView farm=holder.itemView.findViewById(R.id.farmProduct);
         TextView price=holder.itemView.findViewById(R.id.priceProdect);
+
 //        imageView.setImageBitmap(BitmapFactory.decodeFile(holder.product.getImage()));
 
         title.setText(holder.product.getName());
