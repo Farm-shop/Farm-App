@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ProductPage"
-    android:background="@color/white"
+    android:background="@color/provpink"
     >
 
 
@@ -29,7 +29,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_navigation_menu" />
+        app:menu="@menu/bottom_navigation_menu"
+        android:background="@color/sushi"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewProductOfUser"
@@ -54,11 +55,12 @@
         android:id="@+id/textView3"
         android:layout_width="324dp"
         android:layout_height="0dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="40dp"
         android:text="Make Healthy  .. Take Fresh !! "
         android:textColor="@color/sushi"
         android:textSize="20dp"
+
         app:layout_constraintStart_toEndOf="@+id/imageView5"
         app:layout_constraintTop_toTopOf="parent" />
 

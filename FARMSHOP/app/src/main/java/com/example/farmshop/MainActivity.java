@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
 
-                Intent intent=new Intent(MainActivity.this,SecondMain.class);
+                Intent intent=new Intent(MainActivity.this,Home.class);
                 startActivity(intent);
             }
         }, 2000);
