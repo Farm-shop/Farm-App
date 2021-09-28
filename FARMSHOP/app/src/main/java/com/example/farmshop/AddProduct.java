@@ -27,13 +27,17 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 public class AddProduct extends AppCompatActivity {
-    EditText nameProduct=findViewById(R.id.editNameProdectFarmer);
-    EditText priceProduct=findViewById(R.id.editpriceProdect);
+    EditText nameProduct;
+
+
+    EditText priceProduct;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_product);
         System.out.println(")))00000000000000000000");
+        nameProduct=findViewById(R.id.editNameProdectFarm);
+        priceProduct=findViewById(R.id.editpriceProduct);
     }
 
     @Override

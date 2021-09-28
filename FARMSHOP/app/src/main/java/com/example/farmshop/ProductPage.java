@@ -3,8 +3,10 @@ package com.example.farmshop;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -39,35 +41,37 @@ public class ProductPage extends AppCompatActivity {
 //        Button singOut=findViewById(R.id.singOutUser);
 //        singOut.setOnClickListener((v)->{
 //            signOut();
+//
+//
 //        });
 
         renderOfProduct();
 
-        BottomNavigationItemView cart=findViewById(R.id.page_2);
-        Amplify.Auth.fetchAuthSession(
-                result ->{
-                    Log.i("AmplifyQuickstart", result.toString());
-                    if (result.isSignedIn()){
-                        Amplify.Auth.fetchUserAttributes(
-                                attributes -> {
-                                    Log.i("AuthDemo", "User attributes = " + attributes.toString());
-                                },
-                                error -> Log.e("AuthDemo", "Failed to fetch user attributes.", error)
-                        );
-
-                        cart.setOnClickListener((v)->{
-                            Intent startCart=new Intent(ProductPage.this,CartPage.class);
-                            startActivity(startCart);
-                        });
-                    }else {
-                        cart.setOnClickListener((v)->{
-                            Intent startCart=new Intent(ProductPage.this,LogIn.class);
-                            startActivity(startCart);
-                        });
-                    }
-                },
-                error -> Log.e("AmplifyQuickstart", error.toString())
-        );
+//        BottomNavigationItemView cart=findViewById(R.id.page_2);
+//        Amplify.Auth.fetchAuthSession(
+//                result ->{
+//                    Log.i("AmplifyQuickstart", result.toString());
+//                    if (result.isSignedIn()){
+//                        Amplify.Auth.fetchUserAttributes(
+//                                attributes -> {
+//                                    Log.i("AuthDemo", "User attributes = " + attributes.toString());
+//                                },
+//                                error -> Log.e("AuthDemo", "Failed to fetch user attributes.", error)
+//                        );
+//
+//                        cart.setOnClickListener((v)->{
+//                            Intent startCart=new Intent(ProductPage.this,CartPage.class);
+//                            startActivity(startCart);
+//                        });
+//                    }else {
+//                        cart.setOnClickListener((v)->{
+//                            Intent startCart=new Intent(ProductPage.this,LogIn.class);
+//                            startActivity(startCart);
+//                        });
+//                    }
+//                },
+//                error -> Log.e("AmplifyQuickstart", error.toString())
+//        );
 
 
 
@@ -109,7 +113,15 @@ public class ProductPage extends AppCompatActivity {
                 },
                 error -> Log.e("MyAmplifyApp", "Query failure", error)
         );
-        allProductRecyclerView.setLayoutManager(new GridLayoutManager(getApplicationContext(),3));
+        LinearLayoutManager layoutManager
+                = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
+
+
+        allProductRecyclerView.setLayoutManager(layoutManager);
+//        allProductRecyclerView.setLayoutManager(new GridLayoutManager(getApplicationContext(),3));
         allProductRecyclerView.setAdapter(new ProductAdapter(allProduct));
     }
+
+//    private Context requireContext() {
+//    }
 }

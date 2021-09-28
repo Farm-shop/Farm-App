@@ -15,16 +15,16 @@ type User @model{
   items:[Item] @connection(keyName: "byUser", fields: ["id"])
 }
 type Product @model
-@key(name: "byFarm", fields: ["farmID", "name","price"]){
+@key(name: "byFarm", fields: ["farmID", "name","price","image"]){
   id:ID!
   farmID:ID!
   name:String!
   price:String!
-#  image:String!
+  image:String!
 }
 type Item @model
-@key(name: "byUser", fields: ["userID", "name","price","quantity"])
-@key(name: "byFarm", fields: ["farmID", "name","price","quantity"])
+@key(name: "byUser", fields: ["userID", "name","price","quantity","image","status"])
+@key(name: "byFarm", fields: ["farmID", "name","price","quantity","image","status"])
 
 {
   id:ID!
@@ -33,7 +33,7 @@ type Item @model
   name:String!
   price:String!
   quantity:String!
-#  image:String!
+  image:String!
   status:String!
 
 }

@@ -23,7 +23,7 @@
         app:layout_constraintVertical_bias="0.15" />
 
     <EditText
-        android:id="@+id/editNameProdectFarmer"
+        android:id="@+id/editNameProdectFarm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -48,7 +48,7 @@
         app:layout_constraintVertical_bias="0.282" />
 
     <EditText
-        android:id="@+id/editpriceProdect"
+        android:id="@+id/editpriceProduct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"

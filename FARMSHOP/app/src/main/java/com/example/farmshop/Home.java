@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.VideoView;
 
+import com.amplifyframework.core.Amplify;
+
 public class Home extends AppCompatActivity {
 
     @Override
@@ -37,7 +39,7 @@ public class Home extends AppCompatActivity {
         });
         Button button1=findViewById(R.id.button3);
         button1.setOnClickListener((v)->{
-            Intent intent=new Intent(Home.this,FarmActivity.class);
+            Intent intent=new Intent(Home.this,AddProduct.class);
             startActivity(intent);
         });
     }

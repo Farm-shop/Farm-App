@@ -85,8 +85,8 @@ public class ProductAdapter extends  RecyclerView.Adapter<ProductAdapter.Product
     public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
         holder.product=allProduct.get(position);
         ImageView imageView=holder.itemView.findViewById(R.id.imageView);
-        TextView title=holder.itemView.findViewById(R.id.titleProduct);
-        TextView farm=holder.itemView.findViewById(R.id.farmProduct);
+        TextView title=holder.itemView.findViewById(R.id.titleProducts);
+        TextView farm=holder.itemView.findViewById(R.id.farmName);
         TextView price=holder.itemView.findViewById(R.id.priceProdect);
 
 //        imageView.setImageBitmap(BitmapFactory.decodeFile(holder.product.getImage()));

@@ -12,9 +12,12 @@
         <entry key="..\:/Users/User/Desktop/Farm-App/FARMSHOP/app/src/main/res/drawable/backbutton.xml" value="0.16458333333333333" />
         <entry key="..\:/Users/User/Desktop/Farm-App/FARMSHOP/app/src/main/res/drawable/courner.xml" value="0.16458333333333333" />
         <entry key="..\:/Users/User/Desktop/Farm-App/FARMSHOP/app/src/main/res/drawable/forsignininsignup.xml" value="0.16927083333333334" />
+        <entry key="..\:/Users/User/Desktop/Farm-App/FARMSHOP/app/src/main/res/drawable/leftround.xml" value="0.28489583333333335" />
         <entry key="..\:/Users/User/Desktop/Farm-App/FARMSHOP/app/src/main/res/drawable/raundtextfor.xml" value="0.16458333333333333" />
+        <entry key="..\:/Users/User/Desktop/Farm-App/FARMSHOP/app/src/main/res/drawable/rectangularimage.xml" value="0.28489583333333335" />
         <entry key="..\:/Users/User/Desktop/Farm-App/FARMSHOP/app/src/main/res/drawable/roundbuttom.xml" value="0.16927083333333334" />
         <entry key="..\:/Users/User/Desktop/Farm-App/FARMSHOP/app/src/main/res/drawable/roundtext.xml" value="0.16458333333333333" />
+        <entry key="..\:/Users/User/Desktop/Farm-App/FARMSHOP/app/src/main/res/drawable/searchwhight.xml" value="0.16927083333333334" />
         <entry key="..\:/Users/User/Desktop/Farm-App/FARMSHOP/app/src/main/res/drawable/signininsidelogup.xml" value="0.16927083333333334" />
         <entry key="..\:/Users/User/Desktop/Farm-App/FARMSHOP/app/src/main/res/drawable/signinup.xml" value="0.16927083333333334" />
         <entry key="..\:/Users/User/Desktop/Farm-App/FARMSHOP/app/src/main/res/drawable/whitebutton.xml" value="0.16927083333333334" />
@@ -26,7 +29,7 @@
         <entry key="..\:/Users/User/Desktop/Farm-App/FARMSHOP/app/src/main/res/layout/activity_log_in.xml" value="0.33" />
         <entry key="..\:/Users/User/Desktop/Farm-App/FARMSHOP/app/src/main/res/layout/activity_log_up.xml" value="0.25" />
         <entry key="..\:/Users/User/Desktop/Farm-App/FARMSHOP/app/src/main/res/layout/activity_main2.xml" value="0.33" />
-        <entry key="..\:/Users/User/Desktop/Farm-App/FARMSHOP/app/src/main/res/layout/activity_product_page.xml" value="0.1" />
+        <entry key="..\:/Users/User/Desktop/Farm-App/FARMSHOP/app/src/main/res/layout/activity_product_page.xml" value="0.18" />
         <entry key="..\:/Users/User/Desktop/Farm-App/FARMSHOP/app/src/main/res/layout/activity_select_type_user.xml" value="0.22" />
         <entry key="..\:/Users/User/Desktop/Farm-App/FARMSHOP/app/src/main/res/layout/fragment_list.xml" value="0.25" />
         <entry key="..\:/Users/User/Desktop/Farm-App/FARMSHOP/app/src/main/res/layout/fragment_product.xml" value="0.33" />

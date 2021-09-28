@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/pic"
 
-    tools:context=".LogIn"
+    tools:context=".LogUp"
     >
 
     <androidx.cardview.widget.CardView

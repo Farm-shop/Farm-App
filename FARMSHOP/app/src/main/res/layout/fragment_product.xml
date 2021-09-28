@@ -2,88 +2,177 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="141dp"
-    android:layout_height="185dp"
+    android:layout_width="180dp"
+    android:layout_height="180dp"
     tools:context=".ProductFragment">
 
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
-        android:layout_width="102dp"
-        android:layout_height="140dp"
-        android:layout_margin="10dp"
-        app:cardBackgroundColor="@color/white"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="10dp"
-        >
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="148dp">
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="160dp"
+            android:layout_height="180dp"
+            android:layout_margin="10dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/recyclerViewProductOfUser"
+            app:layout_constraintStart_toStartOf="@+id/recyclerViewProductOfUser"
+            app:layout_constraintTop_toTopOf="@+id/recyclerViewProductOfUser">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="160dp"
+                android:layout_height="180dp"
+                android:background="@color/white">
 
 
-            <TextView
-                android:id="@+id/farmProduct"
-                android:layout_width="62dp"
-                android:layout_height="18dp"
-                android:text="TextView"
-                android:textSize="20dp"
-                android:textColor="@color/black"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/titleProduct" />
+                <ImageView
+                    android:id="@+id/imageView8"
+                    android:layout_width="160dp"
+                    android:layout_height="95dp"
+                    android:scaleType="fitCenter"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.219"
+                    app:srcCompat="@drawable/pic" />
 
-            <ImageView
-                android:id="@+id/imageView8"
-                android:layout_width="wrap_content"
-                android:layout_height="76dp"
-                android:scaleType="fitCenter"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.013"
-                app:srcCompat="@drawable/icons_home" />
+                <TextView
+                    android:id="@+id/titleProducts"
+                    android:layout_width="100dp"
+                    android:layout_height="18dp"
+                    android:layout_marginTop="12dp"
+                    android:text="productName"
+                    android:textColor="@color/design_default_color_on_secondary"
+                    android:textColorHighlight="@color/black"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.144"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView8" />
 
-            <TextView
-                android:id="@+id/titleProduct"
-                android:layout_width="98dp"
-                android:layout_height="18dp"
-                android:text="TextView"
-                android:textSize="20dp"
-                android:textColor="@color/black"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView8" />
+                <TextView
+                    android:id="@+id/priceProdect"
+                    android:layout_width="80dp"
+                    android:layout_height="17dp"
+                    android:layout_marginStart="16dp"
+                    android:text="0.5 JD/KG"
+                    android:textColor="#30e67c"
+                    android:textColorHighlight="@color/black"
+                    android:textSize="15dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/farmName" />
 
-            <ImageButton
-                android:id="@+id/addToCartButton"
-                android:layout_width="30dp"
-                android:layout_height="29dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="20dp"
-                android:background="@android:color/transparent"
-                android:scaleType="fitStart"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:srcCompat="@drawable/icons_cart" />
+                <TextView
+                    android:id="@+id/farmName"
+                    android:layout_width="80dp"
+                    android:layout_height="16dp"
+                    android:layout_marginStart="16dp"
+                    android:text="farmName"
+                    android:textColor="@color/browser_actions_title_color"
+                    android:textColorHighlight="@color/black"
+                    android:textSize="15dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/titleProducts" />
 
-            <TextView
-                android:id="@+id/priceProdect"
-                android:layout_width="62dp"
-                android:layout_height="18dp"
-                android:layout_marginEnd="40dp"
-                android:text="TextView"
-                android:textSize="20dp"
-                android:textColor="@color/black"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/farmProduct" />
+                <ImageButton
+                    android:id="@+id/addToCartButton"
+                    android:layout_width="50dp"
+                    android:layout_height="40dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/leftround"
+                    android:src="@drawable/ic_lock"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--    <androidx.cardview.widget.CardView-->
+    <!--        android:id="@+id/cardView"-->
+    <!--        android:layout_width="102dp"-->
+    <!--        android:layout_height="140dp"-->
+    <!--        android:layout_margin="10dp"-->
+    <!--        app:cardBackgroundColor="@color/white"-->
+    <!--        app:cardCornerRadius="8dp"-->
+    <!--        app:cardElevation="10dp"-->
+    <!--        >-->
+
+    <!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="148dp">-->
+
+
+    <!--            <TextView-->
+    <!--                android:id="@+id/farmProduct"-->
+    <!--                android:layout_width="62dp"-->
+    <!--                android:layout_height="18dp"-->
+    <!--                android:text="TextView"-->
+    <!--                android:textSize="20dp"-->
+    <!--                android:textColor="@color/black"-->
+    <!--                app:layout_constraintEnd_toEndOf="parent"-->
+    <!--                app:layout_constraintHorizontal_bias="0.0"-->
+    <!--                app:layout_constraintStart_toStartOf="parent"-->
+    <!--                app:layout_constraintTop_toBottomOf="@+id/titleProduct" />-->
+
+    <!--            <ImageView-->
+    <!--                android:id="@+id/imageView8"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="76dp"-->
+    <!--                android:scaleType="fitCenter"-->
+    <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--                app:layout_constraintEnd_toEndOf="parent"-->
+    <!--                app:layout_constraintHorizontal_bias="0.0"-->
+    <!--                app:layout_constraintStart_toStartOf="parent"-->
+    <!--                app:layout_constraintTop_toTopOf="parent"-->
+    <!--                app:layout_constraintVertical_bias="0.013"-->
+    <!--                app:srcCompat="@drawable/icons_home" />-->
+
+    <!--            <TextView-->
+    <!--                android:id="@+id/titleProduct"-->
+    <!--                android:layout_width="98dp"-->
+    <!--                android:layout_height="18dp"-->
+    <!--                android:text="TextView"-->
+    <!--                android:textSize="20dp"-->
+    <!--                android:textColor="@color/black"-->
+    <!--                app:layout_constraintEnd_toEndOf="parent"-->
+    <!--                app:layout_constraintHorizontal_bias="0.0"-->
+    <!--                app:layout_constraintStart_toStartOf="parent"-->
+    <!--                app:layout_constraintTop_toBottomOf="@+id/imageView8" />-->
+
+    <!--            <ImageButton-->
+    <!--                android:id="@+id/addToCartButton"-->
+    <!--                android:layout_width="30dp"-->
+    <!--                android:layout_height="29dp"-->
+    <!--                android:layout_marginEnd="8dp"-->
+    <!--                android:layout_marginBottom="20dp"-->
+    <!--                android:background="@android:color/transparent"-->
+    <!--                android:scaleType="fitStart"-->
+    <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--                app:layout_constraintEnd_toEndOf="parent"-->
+    <!--                app:srcCompat="@drawable/icons_cart" />-->
+
+    <!--            <TextView-->
+    <!--                android:id="@+id/priceProdect"-->
+    <!--                android:layout_width="62dp"-->
+    <!--                android:layout_height="18dp"-->
+    <!--                android:layout_marginEnd="40dp"-->
+    <!--                android:text="TextView"-->
+    <!--                android:textSize="20dp"-->
+    <!--                android:textColor="@color/black"-->
+    <!--                app:layout_constraintEnd_toEndOf="parent"-->
+    <!--                app:layout_constraintTop_toBottomOf="@+id/farmProduct" />-->
+
+    <!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+    <!--    </androidx.cardview.widget.CardView>-->
 </FrameLayout>
 <!--<?xml version="1.0" encoding="utf-8"?>-->
 <!--<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
