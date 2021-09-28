@@ -40,26 +40,26 @@ public class ProductAdapter extends  RecyclerView.Adapter<ProductAdapter.Product
         public ProductViewHolder(@NonNull View itemView) {
             super(itemView);
             this.itemView=itemView;
-            ImageButton addToCart=itemView.findViewById(R.id.addToCartButton);
-            addToCart.setOnClickListener((v)->{
-
-                Item item=Item.builder()
-                        .userId(Amplify.Auth.getCurrentUser().getUserId())
-                        .farmId(product.getFarmId())
-                        .name(product.getName())
-                        .price(product.getPrice())
-                        .quantity("1")
-                        .status("add")
-                        .build();
-                Amplify.API.mutate(ModelMutation.create(item),
-                        result -> {Log.i("MyAmplifyApp", "Todo with id: " + result.getData().getId());
-
-                        },
-                        error -> {
-                            Log.e("MyAmplifyApp", "Create failed", error);
-                        }
-                );
-            });
+//            ImageButton addToCart=itemView.findViewById(R.id.addToCartButton);
+//            addToCart.setOnClickListener((v)->{
+//
+//                Item item=Item.builder()
+//                        .userId(Amplify.Auth.getCurrentUser().getUserId())
+//                        .farmId(product.getFarmId())
+//                        .name(product.getName())
+//                        .price(product.getPrice())
+//                        .quantity("1")
+//                        .status("add")
+//                        .build();
+//                Amplify.API.mutate(ModelMutation.create(item),
+//                        result -> {Log.i("MyAmplifyApp", "Todo with id: " + result.getData().getId());
+//
+//                        },
+//                        error -> {
+//                            Log.e("MyAmplifyApp", "Create failed", error);
+//                        }
+//                );
+//            });
         }
     }
 

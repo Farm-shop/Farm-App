@@ -1,8 +1,6 @@
 package com.example.farmshop;
 
 
-import android.content.Intent;
-import android.os.Build;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,13 +14,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.amplifyframework.api.graphql.model.ModelMutation;
 import com.amplifyframework.api.graphql.model.ModelQuery;
 import com.amplifyframework.core.Amplify;
-import com.amplifyframework.core.model.query.predicate.QueryPredicate;
 import com.amplifyframework.datastore.generated.model.Farm;
 import com.amplifyframework.datastore.generated.model.Item;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Predicate;
 
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder>{
     List<Item> allItem=new ArrayList<>();
@@ -115,7 +111,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
         holder.item=allItem.get(position);
 //        ImageView imageView=holder.itemView.findViewById(R.id.imageView);
-        TextView title=holder.itemView.findViewById(R.id.titleProducts);
+        TextView title=holder.itemView.findViewById(R.id.titleProduct);
         TextView farm=holder.itemView.findViewById(R.id.farmProducts);
         TextView quntity=holder.itemView.findViewById(R.id.showQuntty);
         TextView price=holder.itemView.findViewById(R.id.priceProdects);
