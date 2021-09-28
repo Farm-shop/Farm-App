@@ -2,161 +2,158 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="141dp"
-    android:layout_height="185dp"
+    android:layout_width="100dp"
+    android:layout_height="150dp"
+    android:layout_margin="5dp"
     tools:context=".ProductFragment">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="139dp">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
-        android:layout_width="102dp"
-        android:layout_height="140dp"
-        android:layout_margin="10dp"
-        app:cardBackgroundColor="@color/white"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="10dp"
-        >
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="75dp"
+            android:layout_height="126dp"
+            android:layout_margin="10dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="10dp">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="148dp">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="73dp"
+                android:layout_height="128dp"
+                android:background="@color/white">
 
 
-            <TextView
-                android:id="@+id/farmProduct"
-                android:layout_width="62dp"
-                android:layout_height="18dp"
-                android:text="TextView"
-                android:textSize="20dp"
-                android:textColor="@color/black"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/titleProduct" />
+                <ImageView
+                    android:id="@+id/imageView8"
+                    android:layout_width="73dp"
+                    android:layout_height="51dp"
+                    android:scaleType="fitCenter"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.051"
+                    app:srcCompat="@drawable/tommato" />
 
-            <ImageView
-                android:id="@+id/imageView8"
-                android:layout_width="wrap_content"
-                android:layout_height="76dp"
-                android:scaleType="fitCenter"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.013"
-                app:srcCompat="@drawable/icons_home" />
+                <TextView
+                    android:id="@+id/titleProduct"
+                    android:layout_width="69dp"
+                    android:layout_height="18dp"
+                    android:layout_marginTop="4dp"
+                    android:text="Tommato"
+                    android:textColor="@color/design_default_color_on_secondary"
+                    android:textColorHighlight="@color/black"
+                    android:textSize="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView8" />
 
-            <TextView
-                android:id="@+id/titleProduct"
-                android:layout_width="98dp"
-                android:layout_height="18dp"
-                android:text="TextView"
-                android:textSize="20dp"
-                android:textColor="@color/black"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView8" />
+                <TextView
+                    android:id="@+id/priceProdect"
+                    android:layout_width="35dp"
+                    android:layout_height="16dp"
+                    android:layout_marginEnd="32dp"
+                    android:text="0.5 JD/KG"
+                    android:textColor="@color/design_default_color_on_secondary"
+                    android:textColorHighlight="@color/black"
+                    android:textSize="7dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/titleProduct" />
 
-            <ImageButton
-                android:id="@+id/addToCartButton"
-                android:layout_width="30dp"
-                android:layout_height="29dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="20dp"
-                android:background="@android:color/transparent"
-                android:scaleType="fitStart"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:srcCompat="@drawable/icons_cart" />
+                <ImageButton
+                    android:id="@+id/addToCartButton"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@color/white"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/pluss"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
 
-            <TextView
-                android:id="@+id/priceProdect"
-                android:layout_width="62dp"
-                android:layout_height="18dp"
-                android:layout_marginEnd="40dp"
-                android:text="TextView"
-                android:textSize="20dp"
-                android:textColor="@color/black"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/farmProduct" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
-<!--<?xml version="1.0" encoding="utf-8"?>-->
-<!--<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
-<!--    xmlns:tools="http://schemas.android.com/tools"-->
-<!--    android:id="@+id/fragmentProduct"-->
-<!--    android:layout_width="141dp"-->
-<!--    android:layout_height="202dp"-->
-<!--    tools:context=".ProductFragment">-->
+    <!--<?xml version="1.0" encoding="utf-8"?>-->
+    <!--<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--    xmlns:tools="http://schemas.android.com/tools"-->
+    <!--    android:id="@+id/fragmentProduct"-->
+    <!--    android:layout_width="141dp"-->
+    <!--    android:layout_height="202dp"-->
+    <!--    tools:context=".ProductFragment">-->
 
-<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--        android:layout_width="141dp"-->
-<!--        android:layout_height="202dp">-->
+    <!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+    <!--        android:layout_width="141dp"-->
+    <!--        android:layout_height="202dp">-->
 
-<!--        <LinearLayout-->
-<!--            android:layout_width="121dp"-->
-<!--            android:layout_height="193dp"-->
-<!--            android:layout_marginStart="8dp"-->
-<!--            android:layout_marginTop="8dp"-->
-<!--            android:background="@color/black"-->
-<!--            android:orientation="vertical"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent">-->
+    <!--        <LinearLayout-->
+    <!--            android:layout_width="121dp"-->
+    <!--            android:layout_height="193dp"-->
+    <!--            android:layout_marginStart="8dp"-->
+    <!--            android:layout_marginTop="8dp"-->
+    <!--            android:background="@color/black"-->
+    <!--            android:orientation="vertical"-->
+    <!--            app:layout_constraintStart_toStartOf="parent"-->
+    <!--            app:layout_constraintTop_toTopOf="parent">-->
 
 
-<!--            <ImageView-->
-<!--                android:id="@+id/imageView4"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="95dp"-->
-<!--                android:background="@color/light_green"-->
-<!--                android:src="@drawable/icons_cart"-->
+    <!--            <ImageView-->
+    <!--                android:id="@+id/imageView4"-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="95dp"-->
+    <!--                android:background="@color/light_green"-->
+    <!--                android:src="@drawable/icons_cart"-->
 
-<!--                />-->
+    <!--                />-->
 
-<!--            <TextView-->
-<!--                android:id="@+id/titleProduct"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="TextView" />-->
+    <!--            <TextView-->
+    <!--                android:id="@+id/titleProduct"-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:text="TextView" />-->
 
-<!--            <TextView-->
-<!--                android:id="@+id/farmProduct"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="TextView" />-->
+    <!--            <TextView-->
+    <!--                android:id="@+id/farmProduct"-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:text="TextView" />-->
 
-<!--            <TextView-->
-<!--                android:id="@+id/priceProdect"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="TextView" />-->
+    <!--            <TextView-->
+    <!--                android:id="@+id/priceProdect"-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:text="TextView" />-->
 
-<!--            <TextView-->
-<!--                android:id="@+id/showQuntty"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="TextView" />-->
+    <!--            <TextView-->
+    <!--                android:id="@+id/showQuntty"-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:text="TextView" />-->
 
-<!--        </LinearLayout>-->
+    <!--        </LinearLayout>-->
 
-<!--        <Button-->
-<!--            android:id="@+id/addToCartButton"-->
-<!--            android:layout_width="34dp"-->
-<!--            android:layout_height="30dp"-->
-<!--            android:background="@color/button_color"-->
-<!--            android:text="+"-->
-<!--            android:textSize="20sp"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintHorizontal_bias="0.992"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent"-->
-<!--            app:layout_constraintVertical_bias="0.016" />-->
+    <!--        <Button-->
+    <!--            android:id="@+id/addToCartButton"-->
+    <!--            android:layout_width="34dp"-->
+    <!--            android:layout_height="30dp"-->
+    <!--            android:background="@color/button_color"-->
+    <!--            android:text="+"-->
+    <!--            android:textSize="20sp"-->
+    <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--            app:layout_constraintEnd_toEndOf="parent"-->
+    <!--            app:layout_constraintHorizontal_bias="0.992"-->
+    <!--            app:layout_constraintStart_toStartOf="parent"-->
+    <!--            app:layout_constraintTop_toTopOf="parent"-->
+    <!--            app:layout_constraintVertical_bias="0.016" />-->
 
-<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
-<!--</FrameLayout>-->
+    <!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+    <!--</FrameLayout>-->
