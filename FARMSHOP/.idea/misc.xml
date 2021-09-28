@@ -3,15 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Farm-App/FARMSHOP/app/src/main/res/ahmad/drawable/add.xml" value="0.2203125" />
+        <entry key="..\:/Farm-App/FARMSHOP/app/src/main/res/ahmad/drawable/ic_baseline_remove_24.xml" value="0.2203125" />
         <entry key="..\:/Farm-App/FARMSHOP/app/src/main/res/drawable/backbutton.xml" value="0.2203125" />
         <entry key="..\:/Farm-App/FARMSHOP/app/src/main/res/drawable/cardview.xml" value="0.2046875" />
         <entry key="..\:/Farm-App/FARMSHOP/app/src/main/res/drawable/courner.xml" value="0.2046875" />
         <entry key="..\:/Farm-App/FARMSHOP/app/src/main/res/drawable/raundtextfor.xml" value="0.2203125" />
         <entry key="..\:/Farm-App/FARMSHOP/app/src/main/res/drawable/roundbuttom.xml" value="0.2203125" />
         <entry key="..\:/Farm-App/FARMSHOP/app/src/main/res/drawable/roundtext.xml" value="0.2203125" />
+        <entry key="..\:/Farm-App/FARMSHOP/app/src/main/res/layout/activity_cart_page.xml" value="0.1721014492753623" />
         <entry key="..\:/Farm-App/FARMSHOP/app/src/main/res/layout/activity_log_in.xml" value="0.1" />
+        <entry key="..\:/Farm-App/FARMSHOP/app/src/main/res/layout/activity_order.xml" value="0.1" />
         <entry key="..\:/Farm-App/FARMSHOP/app/src/main/res/layout/activity_product_page.xml" value="0.18" />
-        <entry key="..\:/Farm-App/FARMSHOP/app/src/main/res/layout/fragment_list.xml" value="0.1" />
+        <entry key="..\:/Farm-App/FARMSHOP/app/src/main/res/layout/fragment_list.xml" value="0.75" />
+        <entry key="..\:/Farm-App/FARMSHOP/app/src/main/res/layout/fragment_list_order_farm.xml" value="0.33" />
         <entry key="..\:/Farm-App/FARMSHOP/app/src/main/res/layout/fragment_product.xml" value="0.5" />
         <entry key="..\:/Users/User/AndroidStudioProjects/FARMSHOP/app/src/main/res/layout/activity_cart_page.xml" value="0.2" />
         <entry key="..\:/Users/User/AndroidStudioProjects/FARMSHOP/app/src/main/res/layout/activity_home.xml" value="0.22" />

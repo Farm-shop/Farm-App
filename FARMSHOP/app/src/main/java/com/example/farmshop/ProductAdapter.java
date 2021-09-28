@@ -33,7 +33,6 @@ public class ProductAdapter extends  RecyclerView.Adapter<ProductAdapter.Product
     }
 
 
-
     public static class ProductViewHolder extends RecyclerView.ViewHolder{
         public Product product;
         View itemView;

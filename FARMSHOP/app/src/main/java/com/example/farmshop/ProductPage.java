@@ -6,23 +6,17 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
-import android.widget.Button;
-import android.widget.HorizontalScrollView;
 
 import com.amplifyframework.api.graphql.model.ModelQuery;
 import com.amplifyframework.auth.options.AuthSignOutOptions;
 import com.amplifyframework.core.Amplify;
 import com.amplifyframework.datastore.generated.model.Product;
-import com.google.android.material.bottomnavigation.BottomNavigationItemView;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.io.File;
 import java.util.ArrayList;
 
 public class ProductPage extends AppCompatActivity {
@@ -85,7 +79,7 @@ public class ProductPage extends AppCompatActivity {
     }
 
     private void renderOfProduct(){
-        RecyclerView allProductRecyclerView=findViewById(R.id.recyclerViewProductOfUser);
+        RecyclerView allProductRecyclerView=findViewById(R.id.recyclerViewOrder);
         Handler handler = new Handler(Looper.getMainLooper(),
                 new Handler.Callback() {
                     @Override
