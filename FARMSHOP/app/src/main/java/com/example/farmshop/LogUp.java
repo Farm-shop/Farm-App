@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.amplifyframework.api.graphql.model.ModelMutation;
@@ -23,11 +24,21 @@ public class LogUp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_up);
 
-        EditText username = findViewById(R.id.editName);
+        EditText username = findViewById(R.id.nameSignUp);
         EditText email = findViewById(R.id.emailInSignUpPage);
-        EditText password = findViewById(R.id.latatuideView);
+        EditText password = findViewById(R.id.passwordSignup);
         EditText phone = findViewById(R.id.editPhonNumber);
-        Button button = findViewById(R.id.buttonSignUp);
+        Button button = findViewById(R.id.signUpButton);
+        Button transition=findViewById(R.id.signInonTransitionUp);
+        ImageView imageView=findViewById(R.id.imagebackLogUp);
+        imageView.setOnClickListener((v)->{
+            Intent intent =new Intent(LogUp.this,Home.class);
+            startActivity(intent);
+        });
+        transition.setOnClickListener((v)->{
+            Intent intent=new Intent(LogUp.this,LogIn.class);
+            startActivity(intent);
+        });
         button.setOnClickListener((v)->{
             AuthSignUpOptions options = AuthSignUpOptions.builder()
                     .userAttribute(AuthUserAttributeKey.email(), email.getText().toString())

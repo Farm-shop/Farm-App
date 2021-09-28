@@ -13,6 +13,7 @@ import android.os.Message;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import com.amplifyframework.api.graphql.model.ModelQuery;
 import com.amplifyframework.core.Amplify;
@@ -28,7 +29,7 @@ public class LogIn extends AppCompatActivity {
         Button signInButton = findViewById(R.id.signinButton);
         EditText username = findViewById(R.id.nameSignIn);
         EditText password = findViewById(R.id.passwordSignIn);
-
+        ImageView imageView=findViewById(R.id.imagebackLogin);
         signUp.setOnClickListener((v)->{
             Intent goToSingUpBtn = new Intent(LogIn.this, LogUp.class);
             startActivity(goToSingUpBtn);
@@ -46,6 +47,10 @@ public class LogIn extends AppCompatActivity {
             signIn(username.getText().toString(), password.getText().toString());
 
 
+        });
+        imageView.setOnClickListener((v)->{
+            Intent intent=new Intent(LogIn.this,Home.class);
+            startActivity(intent);
         });
     }
         private static String type="Ahmad";
