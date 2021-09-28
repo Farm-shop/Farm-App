@@ -10,7 +10,7 @@
             "authenticationType": "API_KEY",
             "apiKeyConfig": {
               "apiKeyExpirationDays": 100,
-              "description": "for farm"
+              "description": "for farm project css"
             }
           }
         }
