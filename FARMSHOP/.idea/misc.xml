@@ -48,10 +48,12 @@
         <entry key="..\:/java-401/Farm-App/FARMSHOP/app/src/main/res/drawable/roundbutton.xml" value="0.17135416666666667" />
         <entry key="..\:/java-401/Farm-App/FARMSHOP/app/src/main/res/drawable/roundtext.xml" value="0.17135416666666667" />
         <entry key="..\:/java-401/Farm-App/FARMSHOP/app/src/main/res/drawable/whitebutton.xml" value="0.17135416666666667" />
+        <entry key="..\:/java-401/Farm-App/FARMSHOP/app/src/main/res/layout/activity_add_product.xml" value="0.25" />
         <entry key="..\:/java-401/Farm-App/FARMSHOP/app/src/main/res/layout/activity_cart_page.xml" value="0.25" />
         <entry key="..\:/java-401/Farm-App/FARMSHOP/app/src/main/res/layout/activity_details_of_item.xml" value="0.22" />
         <entry key="..\:/java-401/Farm-App/FARMSHOP/app/src/main/res/layout/activity_details_of_order.xml" value="0.1" />
         <entry key="..\:/java-401/Farm-App/FARMSHOP/app/src/main/res/layout/activity_home.xml" value="0.18070652173913043" />
+        <entry key="..\:/java-401/Farm-App/FARMSHOP/app/src/main/res/layout/activity_log_in.xml" value="0.1897644927536232" />
         <entry key="..\:/java-401/Farm-App/FARMSHOP/app/src/main/res/layout/activity_main.xml" value="0.18070652173913043" />
         <entry key="..\:/java-401/Farm-App/FARMSHOP/app/src/main/res/layout/activity_main2.xml" value="0.18070652173913043" />
         <entry key="..\:/java-401/Farm-App/FARMSHOP/app/src/main/res/layout/fragment_cart_list.xml" value="0.33" />

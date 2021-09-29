@@ -13,4 +13,5 @@
     <color name="button_color">#e52e56</color>
     <color name="onclic_color">#c0c0c0</color>
     <color name="orange">#EB8324</color>
+    <color name="orange_obacity">#20EB8324</color>
 </resources>
