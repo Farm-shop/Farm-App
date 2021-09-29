@@ -1,0 +1,286 @@
+# this is an auto generated file. This will be overwritten
+mutation CreateFarm(
+  $input: CreateFarmInput!
+  $condition: ModelFarmConditionInput
+) {
+  createFarm(input: $input, condition: $condition) {
+    id
+    userSignId
+    name
+    phone
+    products {
+      items {
+        id
+        farmID
+        name
+        price
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    items {
+      items {
+        id
+        userID
+        farmID
+        name
+        price
+        quantity
+        status
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation UpdateFarm(
+  $input: UpdateFarmInput!
+  $condition: ModelFarmConditionInput
+) {
+  updateFarm(input: $input, condition: $condition) {
+    id
+    userSignId
+    name
+    phone
+    products {
+      items {
+        id
+        farmID
+        name
+        price
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    items {
+      items {
+        id
+        userID
+        farmID
+        name
+        price
+        quantity
+        status
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation DeleteFarm(
+  $input: DeleteFarmInput!
+  $condition: ModelFarmConditionInput
+) {
+  deleteFarm(input: $input, condition: $condition) {
+    id
+    userSignId
+    name
+    phone
+    products {
+      items {
+        id
+        farmID
+        name
+        price
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    items {
+      items {
+        id
+        userID
+        farmID
+        name
+        price
+        quantity
+        status
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation CreateUser(
+  $input: CreateUserInput!
+  $condition: ModelUserConditionInput
+) {
+  createUser(input: $input, condition: $condition) {
+    id
+    userSignId
+    name
+    phone
+    label
+    items {
+      items {
+        id
+        userID
+        farmID
+        name
+        price
+        quantity
+        status
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation UpdateUser(
+  $input: UpdateUserInput!
+  $condition: ModelUserConditionInput
+) {
+  updateUser(input: $input, condition: $condition) {
+    id
+    userSignId
+    name
+    phone
+    label
+    items {
+      items {
+        id
+        userID
+        farmID
+        name
+        price
+        quantity
+        status
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation DeleteUser(
+  $input: DeleteUserInput!
+  $condition: ModelUserConditionInput
+) {
+  deleteUser(input: $input, condition: $condition) {
+    id
+    userSignId
+    name
+    phone
+    label
+    items {
+      items {
+        id
+        userID
+        farmID
+        name
+        price
+        quantity
+        status
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation CreateProduct(
+  $input: CreateProductInput!
+  $condition: ModelProductConditionInput
+) {
+  createProduct(input: $input, condition: $condition) {
+    id
+    farmID
+    name
+    price
+    createdAt
+    updatedAt
+  }
+}
+mutation UpdateProduct(
+  $input: UpdateProductInput!
+  $condition: ModelProductConditionInput
+) {
+  updateProduct(input: $input, condition: $condition) {
+    id
+    farmID
+    name
+    price
+    createdAt
+    updatedAt
+  }
+}
+mutation DeleteProduct(
+  $input: DeleteProductInput!
+  $condition: ModelProductConditionInput
+) {
+  deleteProduct(input: $input, condition: $condition) {
+    id
+    farmID
+    name
+    price
+    createdAt
+    updatedAt
+  }
+}
+mutation CreateItem(
+  $input: CreateItemInput!
+  $condition: ModelItemConditionInput
+) {
+  createItem(input: $input, condition: $condition) {
+    id
+    userID
+    farmID
+    name
+    price
+    quantity
+    status
+    createdAt
+    updatedAt
+  }
+}
+mutation UpdateItem(
+  $input: UpdateItemInput!
+  $condition: ModelItemConditionInput
+) {
+  updateItem(input: $input, condition: $condition) {
+    id
+    userID
+    farmID
+    name
+    price
+    quantity
+    status
+    createdAt
+    updatedAt
+  }
+}
+mutation DeleteItem(
+  $input: DeleteItemInput!
+  $condition: ModelItemConditionInput
+) {
+  deleteItem(input: $input, condition: $condition) {
+    id
+    userID
+    farmID
+    name
+    price
+    quantity
+    status
+    createdAt
+    updatedAt
+  }
+}

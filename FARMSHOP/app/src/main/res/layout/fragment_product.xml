@@ -19,9 +19,10 @@
             app:cardBackgroundColor="@color/white"
             app:cardCornerRadius="8dp"
             app:cardElevation="10dp"
-            app:layout_constraintBottom_toBottomOf="@+id/recyclerViewProductOfUser"
-            app:layout_constraintStart_toStartOf="@+id/recyclerViewProductOfUser"
-            app:layout_constraintTop_toTopOf="@+id/recyclerViewProductOfUser">
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="160dp"
@@ -40,7 +41,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.219"
-                    app:srcCompat="@drawable/pic" />
+                    app:srcCompat="@drawable/istockphoto" />
 
                 <TextView
                     android:id="@+id/titleProducts"
@@ -82,7 +83,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/titleProducts" />
 
                 <ImageButton
-                    android:id="@+id/addToCartButton"
+                    android:id="@+id/goToitemDetails"
                     android:layout_width="50dp"
                     android:layout_height="40dp"
                     android:layout_marginBottom="16dp"

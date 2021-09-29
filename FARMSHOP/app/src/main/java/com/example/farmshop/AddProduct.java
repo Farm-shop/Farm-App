@@ -35,7 +35,7 @@ public class AddProduct extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_product);
-        System.out.println(")))00000000000000000000");
+
         nameProduct=findViewById(R.id.editNameProdectFarm);
         priceProduct=findViewById(R.id.editpriceProduct);
     }
@@ -52,48 +52,56 @@ public class AddProduct extends AppCompatActivity {
             Intent chooseFile=new Intent(Intent.ACTION_GET_CONTENT);
             chooseFile.setType("*/*");
             chooseFile=Intent.createChooser(chooseFile,"Choose a file");
-            startActivityForResult(chooseFile,1234);
+            startActivityForResult(chooseFile,54321);
         });
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         String key=Amplify.Auth.getCurrentUser().getUserId()+nameProduct.getText().toString();
+        System.out.println(key+")))00000000000000000000");
+        System.out.println(getApplicationContext().getFilesDir()+")))00000000000000000000");
         File exampleFile = new File(getApplicationContext().getFilesDir(), "title");
-        try {
-            InputStream inputStream=getContentResolver().openInputStream(data.getData());
-            OutputStream outputStream=new FileOutputStream(exampleFile);
-            byte[]buf=new byte[1024];
-            int len;
-            while ((len=inputStream.read(buf))>0){
-                outputStream.write(buf,0,len);
-            }
-            inputStream.close();
-            outputStream.close();
 
-        } catch (Exception exception) {
-            Log.e("MyAmplifyApp", "Upload failed", exception);
-        }
+//        try {
+//            InputStream inputStream=getContentResolver().openInputStream(data.getData());
+//            OutputStream outputStream=new FileOutputStream(exampleFile);
+//            byte[]buf=new byte[1024];
+//            int len;
+//            while ((len=inputStream.read(buf))>0){
+//                outputStream.write(buf,0,len);
+//            }
+//            inputStream.close();
+//            outputStream.close();
+//            System.out.println(exampleFile+")))00000000000000000000");
+//        } catch (Exception exception) {
+//            Log.e("MyAmplifyApp", "Upload failed", exception);
+//        }
+//        Amplify.Storage.uploadFile(
+//                key,
+//                exampleFile,
+//                result ->{
+//                    System.out.println("result)))00000000000000000000");
+//                    Log.i("MyAmplifyApp", "Successfully uploaded: " + result.getKey());
+//                    System.out.println(")))00000000000000000000");
+//                },
+//                storageFailure -> Log.e("MyAmplifyApp", "Upload failed", storageFailure)
+//        );
 
-        Amplify.Storage.uploadFile(
-                key,
-                exampleFile,
-                result -> Log.i("MyAmplifyApp", "Successfully uploaded: " + result.getKey()),
-                storageFailure -> Log.e("MyAmplifyApp", "Upload failed", storageFailure)
-        );
+
     }
-   String images;
+  public String images;
     private void addProdect(){
         String key=Amplify.Auth.getCurrentUser().getUserId()+nameProduct.getText().toString();
-        Amplify.Storage.downloadFile(
-                key,
-                new File(getApplicationContext().getFilesDir() + "/download.jpg"),
-                result -> {
-                    Log.i("MyAmplifyApp", "Successfully downloaded: " + result.getFile().getName());
-                    images =result.getFile().getPath();
-                },
-                error -> Log.e("MyAmplifyApp",  "Download Failure", error)
-        );
+//        Amplify.Storage.downloadFile(
+//                key,
+//                new File(getApplicationContext().getFilesDir() + "/download.jpg"),
+//                result -> {
+//                    Log.i("MyAmplifyApp", "Successfully downloaded: " + result.getFile().getName());
+//                    images =result.getFile().getPath();
+//                },
+//                error -> Log.e("MyAmplifyApp",  "Download Failure", error)
+//        );
          Handler handler = new Handler(Looper.getMainLooper(),
                  new Handler.Callback() {
                      @Override
@@ -110,6 +118,7 @@ public class AddProduct extends AppCompatActivity {
                                  .farmId(farm.getId())
                                  .name(nameProduct.getText().toString())
                                  .price(priceProduct.getText().toString())
+                                 .image("images")
                                  .build();
                          Amplify.API.mutate(ModelMutation.create(product),
                                  result -> Log.i("MyAmplifyApp", "Todo with id: " + result.getData().getId()),

@@ -18,16 +18,18 @@ import static com.amplifyframework.core.model.query.predicate.QueryField.field;
 /** This is an auto generated class representing the Product type in your schema. */
 @SuppressWarnings("all")
 @ModelConfig(pluralName = "Products")
-@Index(name = "byFarm", fields = {"farmID","name","price"})
+@Index(name = "byFarm", fields = {"farmID","name","price","image"})
 public final class Product implements Model {
   public static final QueryField ID = field("id");
   public static final QueryField FARM_ID = field("farmID");
   public static final QueryField NAME = field("name");
   public static final QueryField PRICE = field("price");
+  public static final QueryField IMAGE = field("image");
   private final @ModelField(targetType="ID", isRequired = true) String id;
   private final @ModelField(targetType="ID", isRequired = true) String farmID;
   private final @ModelField(targetType="String", isRequired = true) String name;
   private final @ModelField(targetType="String", isRequired = true) String price;
+  private final @ModelField(targetType="String", isRequired = true) String image;
   public String getId() {
       return id;
   }
@@ -44,11 +46,16 @@ public final class Product implements Model {
       return price;
   }
   
-  private Product(String id, String farmID, String name, String price) {
+  public String getImage() {
+      return image;
+  }
+  
+  private Product(String id, String farmID, String name, String price, String image) {
     this.id = id;
     this.farmID = farmID;
     this.name = name;
     this.price = price;
+    this.image = image;
   }
   
   @Override
@@ -62,7 +69,8 @@ public final class Product implements Model {
       return ObjectsCompat.equals(getId(), product.getId()) &&
               ObjectsCompat.equals(getFarmId(), product.getFarmId()) &&
               ObjectsCompat.equals(getName(), product.getName()) &&
-              ObjectsCompat.equals(getPrice(), product.getPrice());
+              ObjectsCompat.equals(getPrice(), product.getPrice()) &&
+              ObjectsCompat.equals(getImage(), product.getImage());
       }
   }
   
@@ -73,6 +81,7 @@ public final class Product implements Model {
       .append(getFarmId())
       .append(getName())
       .append(getPrice())
+      .append(getImage())
       .toString()
       .hashCode();
   }
@@ -84,7 +93,8 @@ public final class Product implements Model {
       .append("id=" + String.valueOf(getId()) + ", ")
       .append("farmID=" + String.valueOf(getFarmId()) + ", ")
       .append("name=" + String.valueOf(getName()) + ", ")
-      .append("price=" + String.valueOf(getPrice()))
+      .append("price=" + String.valueOf(getPrice()) + ", ")
+      .append("image=" + String.valueOf(getImage()))
       .append("}")
       .toString();
   }
@@ -116,6 +126,7 @@ public final class Product implements Model {
       id,
       null,
       null,
+      null,
       null
     );
   }
@@ -124,7 +135,8 @@ public final class Product implements Model {
     return new CopyOfBuilder(id,
       farmID,
       name,
-      price);
+      price,
+      image);
   }
   public interface FarmIdStep {
     NameStep farmId(String farmId);
@@ -137,7 +149,12 @@ public final class Product implements Model {
   
 
   public interface PriceStep {
-    BuildStep price(String price);
+    ImageStep price(String price);
+  }
+  
+
+  public interface ImageStep {
+    BuildStep image(String image);
   }
   
 
@@ -147,11 +164,12 @@ public final class Product implements Model {
   }
   
 
-  public static class Builder implements FarmIdStep, NameStep, PriceStep, BuildStep {
+  public static class Builder implements FarmIdStep, NameStep, PriceStep, ImageStep, BuildStep {
     private String id;
     private String farmID;
     private String name;
     private String price;
+    private String image;
     @Override
      public Product build() {
         String id = this.id != null ? this.id : UUID.randomUUID().toString();
@@ -160,7 +178,8 @@ public final class Product implements Model {
           id,
           farmID,
           name,
-          price);
+          price,
+          image);
     }
     
     @Override
@@ -178,9 +197,16 @@ public final class Product implements Model {
     }
     
     @Override
-     public BuildStep price(String price) {
+     public ImageStep price(String price) {
         Objects.requireNonNull(price);
         this.price = price;
+        return this;
+    }
+    
+    @Override
+     public BuildStep image(String image) {
+        Objects.requireNonNull(image);
+        this.image = image;
         return this;
     }
     
@@ -207,11 +233,12 @@ public final class Product implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String farmId, String name, String price) {
+    private CopyOfBuilder(String id, String farmId, String name, String price, String image) {
       super.id(id);
       super.farmId(farmId)
         .name(name)
-        .price(price);
+        .price(price)
+        .image(image);
     }
     
     @Override
@@ -227,6 +254,11 @@ public final class Product implements Model {
     @Override
      public CopyOfBuilder price(String price) {
       return (CopyOfBuilder) super.price(price);
+    }
+    
+    @Override
+     public CopyOfBuilder image(String image) {
+      return (CopyOfBuilder) super.image(image);
     }
   }
   

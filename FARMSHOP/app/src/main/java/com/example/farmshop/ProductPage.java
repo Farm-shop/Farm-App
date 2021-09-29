@@ -38,6 +38,7 @@ public class ProductPage extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+        
 //        Button singOut=findViewById(R.id.singOutUser);
 //        singOut.setOnClickListener((v)->{
 //            signOut();

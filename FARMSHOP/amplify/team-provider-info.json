@@ -16,5 +16,41 @@
         "farmshop3d24971a": {}
       }
     }
+  },
+  "forfinal": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-farmshop-forfinal-24329-authRole",
+      "UnauthRoleArn": "arn:aws:iam::383631959188:role/amplify-farmshop-forfinal-24329-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::383631959188:role/amplify-farmshop-forfinal-24329-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-farmshop-forfinal-24329-deployment",
+      "UnauthRoleName": "amplify-farmshop-forfinal-24329-unauthRole",
+      "StackName": "amplify-farmshop-forfinal-24329",
+      "StackId": "arn:aws:cloudformation:us-east-1:383631959188:stack/amplify-farmshop-forfinal-24329/e32a91b0-20b5-11ec-85ad-127d3bc70819",
+      "AmplifyAppId": "d1b2vtbdj1oorx"
+    },
+    "categories": {
+      "auth": {
+        "farmshop3d24971a": {}
+      }
+    }
+  },
+  "forerror": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-farmshop-forerror-43702-authRole",
+      "UnauthRoleArn": "arn:aws:iam::383631959188:role/amplify-farmshop-forerror-43702-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::383631959188:role/amplify-farmshop-forerror-43702-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-farmshop-forerror-43702-deployment",
+      "UnauthRoleName": "amplify-farmshop-forerror-43702-unauthRole",
+      "StackName": "amplify-farmshop-forerror-43702",
+      "StackId": "arn:aws:cloudformation:us-east-1:383631959188:stack/amplify-farmshop-forerror-43702/c0059440-20c5-11ec-8364-0e7f146bbf37",
+      "AmplifyAppId": "d1b2vtbdj1oorx"
+    },
+    "categories": {
+      "auth": {
+        "farmshop3d24971a": {}
+      }
+    }
   }
 }

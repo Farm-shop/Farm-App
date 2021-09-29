@@ -18,8 +18,8 @@ import static com.amplifyframework.core.model.query.predicate.QueryField.field;
 /** This is an auto generated class representing the Item type in your schema. */
 @SuppressWarnings("all")
 @ModelConfig(pluralName = "Items")
-@Index(name = "byUser", fields = {"userID","name","price","quantity"})
-@Index(name = "byFarm", fields = {"farmID","name","price","quantity"})
+@Index(name = "byUser", fields = {"userID","name","price","quantity","image","status"})
+@Index(name = "byFarm", fields = {"farmID","name","price","quantity","image","status"})
 public final class Item implements Model {
   public static final QueryField ID = field("id");
   public static final QueryField USER_ID = field("userID");
@@ -27,6 +27,7 @@ public final class Item implements Model {
   public static final QueryField NAME = field("name");
   public static final QueryField PRICE = field("price");
   public static final QueryField QUANTITY = field("quantity");
+  public static final QueryField IMAGE = field("image");
   public static final QueryField STATUS = field("status");
   private final @ModelField(targetType="ID", isRequired = true) String id;
   private final @ModelField(targetType="ID", isRequired = true) String userID;
@@ -34,6 +35,7 @@ public final class Item implements Model {
   private final @ModelField(targetType="String", isRequired = true) String name;
   private final @ModelField(targetType="String", isRequired = true) String price;
   private final @ModelField(targetType="String", isRequired = true) String quantity;
+  private final @ModelField(targetType="String", isRequired = true) String image;
   private final @ModelField(targetType="String", isRequired = true) String status;
   public String getId() {
       return id;
@@ -59,17 +61,22 @@ public final class Item implements Model {
       return quantity;
   }
   
+  public String getImage() {
+      return image;
+  }
+  
   public String getStatus() {
       return status;
   }
   
-  private Item(String id, String userID, String farmID, String name, String price, String quantity, String status) {
+  private Item(String id, String userID, String farmID, String name, String price, String quantity, String image, String status) {
     this.id = id;
     this.userID = userID;
     this.farmID = farmID;
     this.name = name;
     this.price = price;
     this.quantity = quantity;
+    this.image = image;
     this.status = status;
   }
   
@@ -87,6 +94,7 @@ public final class Item implements Model {
               ObjectsCompat.equals(getName(), item.getName()) &&
               ObjectsCompat.equals(getPrice(), item.getPrice()) &&
               ObjectsCompat.equals(getQuantity(), item.getQuantity()) &&
+              ObjectsCompat.equals(getImage(), item.getImage()) &&
               ObjectsCompat.equals(getStatus(), item.getStatus());
       }
   }
@@ -100,6 +108,7 @@ public final class Item implements Model {
       .append(getName())
       .append(getPrice())
       .append(getQuantity())
+      .append(getImage())
       .append(getStatus())
       .toString()
       .hashCode();
@@ -115,6 +124,7 @@ public final class Item implements Model {
       .append("name=" + String.valueOf(getName()) + ", ")
       .append("price=" + String.valueOf(getPrice()) + ", ")
       .append("quantity=" + String.valueOf(getQuantity()) + ", ")
+      .append("image=" + String.valueOf(getImage()) + ", ")
       .append("status=" + String.valueOf(getStatus()))
       .append("}")
       .toString();
@@ -150,6 +160,7 @@ public final class Item implements Model {
       null,
       null,
       null,
+      null,
       null
     );
   }
@@ -161,6 +172,7 @@ public final class Item implements Model {
       name,
       price,
       quantity,
+      image,
       status);
   }
   public interface UserIdStep {
@@ -184,7 +196,12 @@ public final class Item implements Model {
   
 
   public interface QuantityStep {
-    StatusStep quantity(String quantity);
+    ImageStep quantity(String quantity);
+  }
+  
+
+  public interface ImageStep {
+    StatusStep image(String image);
   }
   
 
@@ -199,13 +216,14 @@ public final class Item implements Model {
   }
   
 
-  public static class Builder implements UserIdStep, FarmIdStep, NameStep, PriceStep, QuantityStep, StatusStep, BuildStep {
+  public static class Builder implements UserIdStep, FarmIdStep, NameStep, PriceStep, QuantityStep, ImageStep, StatusStep, BuildStep {
     private String id;
     private String userID;
     private String farmID;
     private String name;
     private String price;
     private String quantity;
+    private String image;
     private String status;
     @Override
      public Item build() {
@@ -218,6 +236,7 @@ public final class Item implements Model {
           name,
           price,
           quantity,
+          image,
           status);
     }
     
@@ -250,9 +269,16 @@ public final class Item implements Model {
     }
     
     @Override
-     public StatusStep quantity(String quantity) {
+     public ImageStep quantity(String quantity) {
         Objects.requireNonNull(quantity);
         this.quantity = quantity;
+        return this;
+    }
+    
+    @Override
+     public StatusStep image(String image) {
+        Objects.requireNonNull(image);
+        this.image = image;
         return this;
     }
     
@@ -286,13 +312,14 @@ public final class Item implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String userId, String farmId, String name, String price, String quantity, String status) {
+    private CopyOfBuilder(String id, String userId, String farmId, String name, String price, String quantity, String image, String status) {
       super.id(id);
       super.userId(userId)
         .farmId(farmId)
         .name(name)
         .price(price)
         .quantity(quantity)
+        .image(image)
         .status(status);
     }
     
@@ -319,6 +346,11 @@ public final class Item implements Model {
     @Override
      public CopyOfBuilder quantity(String quantity) {
       return (CopyOfBuilder) super.quantity(quantity);
+    }
+    
+    @Override
+     public CopyOfBuilder image(String image) {
+      return (CopyOfBuilder) super.image(image);
     }
     
     @Override

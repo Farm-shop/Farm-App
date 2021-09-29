@@ -36,7 +36,6 @@ public class LogIn extends AppCompatActivity {
         });
 
         signInButton.setOnClickListener((v)->{
-            System.out.println();
             Amplify.Auth.fetchAuthSession(
                     result ->{
                         Log.i("AmplifyQuickstart", result.toString());

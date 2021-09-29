@@ -1,0 +1,165 @@
+# this is an auto generated file. This will be overwritten
+query GetFarm($id: ID!) {
+  getFarm(id: $id) {
+    id
+    userSignId
+    name
+    phone
+    products {
+      items {
+        id
+        farmID
+        name
+        price
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    items {
+      items {
+        id
+        userID
+        farmID
+        name
+        price
+        quantity
+        status
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+query ListFarms(
+  $filter: ModelFarmFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listFarms(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      userSignId
+      name
+      phone
+      products {
+        nextToken
+      }
+      items {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}
+query GetUser($id: ID!) {
+  getUser(id: $id) {
+    id
+    userSignId
+    name
+    phone
+    label
+    items {
+      items {
+        id
+        userID
+        farmID
+        name
+        price
+        quantity
+        status
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+query ListUsers(
+  $filter: ModelUserFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      userSignId
+      name
+      phone
+      label
+      items {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}
+query GetProduct($id: ID!) {
+  getProduct(id: $id) {
+    id
+    farmID
+    name
+    price
+    createdAt
+    updatedAt
+  }
+}
+query ListProducts(
+  $filter: ModelProductFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listProducts(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      farmID
+      name
+      price
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}
+query GetItem($id: ID!) {
+  getItem(id: $id) {
+    id
+    userID
+    farmID
+    name
+    price
+    quantity
+    status
+    createdAt
+    updatedAt
+  }
+}
+query ListItems(
+  $filter: ModelItemFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listItems(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      userID
+      farmID
+      name
+      price
+      quantity
+      status
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}

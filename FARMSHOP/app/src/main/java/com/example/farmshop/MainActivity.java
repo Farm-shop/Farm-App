@@ -27,8 +27,10 @@ public class MainActivity extends AppCompatActivity {
             Amplify.addPlugin(new AWSS3StoragePlugin());
             Amplify.configure(getApplicationContext());
             Log.i("MyAmplifyApp", "Initialized Amplify");
+            System.out.println("try[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[");
         } catch (AmplifyException error) {
             Log.e("MyAmplifyApp", "Could not initialize Amplify", error);
+            System.out.println("try[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[");
         }
 //        try {
 //            Amplify.configure(getApplicationContext());
@@ -41,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
 
-                Intent intent=new Intent(MainActivity.this,SecondMain.class);
+                Intent intent=new Intent(MainActivity.this,Home.class);
                 startActivity(intent);
             }
         }, 2000);

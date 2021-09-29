@@ -1,0 +1,250 @@
+# this is an auto generated file. This will be overwritten
+subscription OnCreateFarm {
+  onCreateFarm {
+    id
+    userSignId
+    name
+    phone
+    products {
+      items {
+        id
+        farmID
+        name
+        price
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    items {
+      items {
+        id
+        userID
+        farmID
+        name
+        price
+        quantity
+        status
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateFarm {
+  onUpdateFarm {
+    id
+    userSignId
+    name
+    phone
+    products {
+      items {
+        id
+        farmID
+        name
+        price
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    items {
+      items {
+        id
+        userID
+        farmID
+        name
+        price
+        quantity
+        status
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteFarm {
+  onDeleteFarm {
+    id
+    userSignId
+    name
+    phone
+    products {
+      items {
+        id
+        farmID
+        name
+        price
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    items {
+      items {
+        id
+        userID
+        farmID
+        name
+        price
+        quantity
+        status
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateUser {
+  onCreateUser {
+    id
+    userSignId
+    name
+    phone
+    label
+    items {
+      items {
+        id
+        userID
+        farmID
+        name
+        price
+        quantity
+        status
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateUser {
+  onUpdateUser {
+    id
+    userSignId
+    name
+    phone
+    label
+    items {
+      items {
+        id
+        userID
+        farmID
+        name
+        price
+        quantity
+        status
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteUser {
+  onDeleteUser {
+    id
+    userSignId
+    name
+    phone
+    label
+    items {
+      items {
+        id
+        userID
+        farmID
+        name
+        price
+        quantity
+        status
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateProduct {
+  onCreateProduct {
+    id
+    farmID
+    name
+    price
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateProduct {
+  onUpdateProduct {
+    id
+    farmID
+    name
+    price
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteProduct {
+  onDeleteProduct {
+    id
+    farmID
+    name
+    price
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateItem {
+  onCreateItem {
+    id
+    userID
+    farmID
+    name
+    price
+    quantity
+    status
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateItem {
+  onUpdateItem {
+    id
+    userID
+    farmID
+    name
+    price
+    quantity
+    status
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteItem {
+  onDeleteItem {
+    id
+    userID
+    farmID
+    name
+    price
+    quantity
+    status
+    createdAt
+    updatedAt
+  }
+}

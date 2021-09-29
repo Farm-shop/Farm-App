@@ -1,18 +1,18 @@
 {
   "api": {
-    "amplifyDatasource": {
+    "farmfinal": {
       "service": "AppSync",
       "providerPlugin": "awscloudformation",
       "output": {
         "authConfig": {
-          "additionalAuthenticationProviders": [],
           "defaultAuthentication": {
             "authenticationType": "API_KEY",
             "apiKeyConfig": {
               "apiKeyExpirationDays": 100,
-              "description": "for farm project css"
+              "description": "for final farm abd"
             }
-          }
+          },
+          "additionalAuthenticationProviders": []
         }
       }
     }

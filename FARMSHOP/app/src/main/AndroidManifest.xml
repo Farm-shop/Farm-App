@@ -19,9 +19,6 @@
             android:name=".DetailsOfItem"
             android:exported="true" />
         <activity
-            android:name=".MainActivity2"
-            android:exported="true" />
-        <activity
             android:name=".AddProduct"
             android:exported="true" />
         <activity
@@ -44,9 +41,6 @@
             android:exported="true" />
         <activity
             android:name=".ProductPage"
-            android:exported="true" />
-        <activity
-            android:name=".SecondMain"
             android:exported="true" />
         <activity
             android:name=".Home"

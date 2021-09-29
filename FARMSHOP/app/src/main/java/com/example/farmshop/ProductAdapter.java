@@ -1,5 +1,7 @@
 package com.example.farmshop;
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
@@ -37,29 +39,36 @@ public class ProductAdapter extends  RecyclerView.Adapter<ProductAdapter.Product
     public static class ProductViewHolder extends RecyclerView.ViewHolder{
         public Product product;
         View itemView;
+        Context context;
         public ProductViewHolder(@NonNull View itemView) {
             super(itemView);
             this.itemView=itemView;
-            ImageButton addToCart=itemView.findViewById(R.id.addToCartButton);
+            ImageButton addToCart=itemView.findViewById(R.id.goToitemDetails);
             addToCart.setOnClickListener((v)->{
-
-                Item item=Item.builder()
-                        .userId(Amplify.Auth.getCurrentUser().getUserId())
-                        .farmId(product.getFarmId())
-                        .name(product.getName())
-                        .price(product.getPrice())
-                        .quantity("1")
-                        .status("add")
-                        .build();
-                Amplify.API.mutate(ModelMutation.create(item),
-                        result -> {Log.i("MyAmplifyApp", "Todo with id: " + result.getData().getId());
-
-                        },
-                        error -> {
-                            Log.e("MyAmplifyApp", "Create failed", error);
-                        }
-                );
+                Intent intent =new Intent(itemView.getContext(),DetailsOfItem.class);
+//                intent.putExtra("image",product.getImage());
+                intent.putExtra("title",product.getName());
+                intent.putExtra("price",product.getPrice());
+                itemView.getContext().startActivity(intent);
             });
+//                Item item=Item.builder()
+//                        .userId(Amplify.Auth.getCurrentUser().getUserId())
+//                        .farmId(product.getFarmId())
+//                        .name(product.getName())
+//                        .price(product.getPrice())
+//                        .quantity("1")
+//                        .image(product.getImage())
+//                        .status("add")
+//                        .build();
+//                Amplify.API.mutate(ModelMutation.create(item),
+//                        result -> {Log.i("MyAmplifyApp", "Todo with id: " + result.getData().getId());
+//
+//                        },
+//                        error -> {
+//                            Log.e("MyAmplifyApp", "Create failed", error);
+//                        }
+//                );
+
         }
     }
 
@@ -84,7 +93,7 @@ public class ProductAdapter extends  RecyclerView.Adapter<ProductAdapter.Product
     @Override
     public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
         holder.product=allProduct.get(position);
-        ImageView imageView=holder.itemView.findViewById(R.id.imageView);
+//        ImageView imageView=holder.itemView.findViewById(R.id.imageView8);
         TextView title=holder.itemView.findViewById(R.id.titleProducts);
         TextView farm=holder.itemView.findViewById(R.id.farmName);
         TextView price=holder.itemView.findViewById(R.id.priceProdect);

@@ -15,7 +15,8 @@ type User @model{
   items:[Item] @connection(keyName: "byUser", fields: ["id"])
 }
 type Product @model
-@key(name: "byFarm", fields: ["farmID", "name","price","image"]){
+@key(name: "byFarm", fields: ["farmID", "name","price","image"])
+{
   id:ID!
   farmID:ID!
   name:String!
@@ -37,4 +38,3 @@ type Item @model
   status:String!
 
 }
-

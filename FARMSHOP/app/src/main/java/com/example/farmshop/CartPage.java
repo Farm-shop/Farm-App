@@ -11,12 +11,14 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
+import android.view.View;
 
 import com.amplifyframework.api.graphql.model.ModelQuery;
 import com.amplifyframework.core.Amplify;
 import com.amplifyframework.datastore.generated.model.Item;
 import com.amplifyframework.datastore.generated.model.User;
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 
@@ -26,6 +28,32 @@ public class CartPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart_page);
+        //************************************************ Start BottomNavigationView ********************************************
+//
+//        BottomNavigationView bottomNavigationView=findViewById(R.id.bottom_navigation);
+//        bottomNavigationView.setSelectedItemId(R.id.cartPage);
+//
+//        BottomNavigationItemView homeInMenu = findViewById(R.id.homeInMenu);
+//        BottomNavigationItemView cartPage = findViewById(R.id.cartPage);
+//        BottomNavigationItemView crops = findViewById(R.id.crops);
+//
+//
+//        homeInMenu.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                startActivity(new Intent(getApplicationContext() , Home.class));
+//            }
+//        });
+//
+//        cartPage.setOnClickListener((v)->{
+//            startActivity(new Intent(getApplicationContext() , CartPage.class));
+//        });
+//
+//        crops.setOnClickListener((v)->{
+//            startActivity(new Intent(getApplicationContext() , ProductPage.class));
+//        });
+
+//************************************************ End BottomNavigationView ********************************************
     }
 
     @Override
