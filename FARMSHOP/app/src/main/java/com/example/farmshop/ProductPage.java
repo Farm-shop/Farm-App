@@ -16,6 +16,7 @@ import android.os.Message;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.HorizontalScrollView;
+import android.widget.TextView;
 
 import com.amplifyframework.api.graphql.model.ModelQuery;
 import com.amplifyframework.auth.options.AuthSignOutOptions;
@@ -38,7 +39,24 @@ public class ProductPage extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        
+        TextView title=findViewById(R.id.textView3);
+        Amplify.Auth.fetchAuthSession(
+                result ->{
+                    Log.i("AmplifyQuickstart", result.toString());
+                    if (result.isSignedIn()){
+                        Amplify.Auth.fetchUserAttributes(
+                                attributes -> {
+                                    Log.i("AuthDemo", "User attributes = " + attributes.toString());
+                                },
+                                error -> Log.e("AuthDemo", "Failed to fetch user attributes.", error)
+                        );
+                        title.setText(Amplify.Auth.getCurrentUser().getUsername());
+                    }else {
+                        title.setText("customer");
+                    }
+                },
+                error -> Log.e("AmplifyQuickstart", error.toString())
+        );
 //        Button singOut=findViewById(R.id.singOutUser);
 //        singOut.setOnClickListener((v)->{
 //            signOut();
@@ -49,30 +67,7 @@ public class ProductPage extends AppCompatActivity {
         renderOfProduct();
 
 //        BottomNavigationItemView cart=findViewById(R.id.page_2);
-//        Amplify.Auth.fetchAuthSession(
-//                result ->{
-//                    Log.i("AmplifyQuickstart", result.toString());
-//                    if (result.isSignedIn()){
-//                        Amplify.Auth.fetchUserAttributes(
-//                                attributes -> {
-//                                    Log.i("AuthDemo", "User attributes = " + attributes.toString());
-//                                },
-//                                error -> Log.e("AuthDemo", "Failed to fetch user attributes.", error)
-//                        );
-//
-//                        cart.setOnClickListener((v)->{
-//                            Intent startCart=new Intent(ProductPage.this,CartPage.class);
-//                            startActivity(startCart);
-//                        });
-//                    }else {
-//                        cart.setOnClickListener((v)->{
-//                            Intent startCart=new Intent(ProductPage.this,LogIn.class);
-//                            startActivity(startCart);
-//                        });
-//                    }
-//                },
-//                error -> Log.e("AmplifyQuickstart", error.toString())
-//        );
+
 
 
 
@@ -118,8 +113,8 @@ public class ProductPage extends AppCompatActivity {
                 = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
 
 
-        allProductRecyclerView.setLayoutManager(layoutManager);
-//        allProductRecyclerView.setLayoutManager(new GridLayoutManager(getApplicationContext(),3));
+//        allProductRecyclerView.setLayoutManager(layoutManager);
+        allProductRecyclerView.setLayoutManager(new GridLayoutManager(getApplicationContext(),2));
         allProductRecyclerView.setAdapter(new ProductAdapter(allProduct));
     }
 

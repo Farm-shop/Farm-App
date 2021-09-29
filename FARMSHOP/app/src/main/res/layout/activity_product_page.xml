@@ -8,11 +8,12 @@
     android:background="@color/whitebluemedum"
     android:paddingTop="20dp"
     >
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="409dp"
         android:layout_height="70dp"
-        android:background="@color/teal_200"
+        android:background="@color/whitebluemedum"
         android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -25,11 +26,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:background="@color/black"
+            android:background="@color/whitebluemedum"
             android:ems="10"
-            android:textColor="@color/gray"
             android:paddingStart="10dp"
-            android:text="TextView"
+            android:text="Welcome"
+            android:textColor="@color/gray"
             android:textSize="15dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -39,14 +40,16 @@
             android:layout_width="166dp"
             android:layout_height="30dp"
             android:layout_marginStart="10dp"
-            android:background="@color/white"
+            android:background="@color/whitebluemedum"
             android:ems="10"
             android:minHeight="60dp"
             android:paddingStart="10dp"
             android:text="TextView"
             android:textColor="@color/black"
+            android:textColorHighlight="@color/black"
             android:textFontWeight="@integer/material_motion_duration_long_1"
             android:textSize="25dp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
@@ -63,153 +66,108 @@
             app:srcCompat="@drawable/ic_launcher_background" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout3"
-        android:layout_width="409dp"
-        android:layout_height="70dp"
-        android:background="@color/teal_200"
-        android:padding="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--        android:id="@+id/constraintLayout3"-->
+<!--        android:layout_width="409dp"-->
+<!--        android:layout_height="70dp"-->
+<!--        android:background="@color/teal_200"-->
+<!--        android:padding="10dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">-->
 
-        <Button
-            android:id="@+id/signinButton"
-            android:layout_width="220dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="37dp"
-            android:background="@drawable/searchwhight"
-            android:text="Search Farm"
-            android:textColor="@color/gray"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0" />
+<!--        <Button-->
+<!--            android:id="@+id/signinButton"-->
+<!--            android:layout_width="220dp"-->
+<!--            android:layout_height="30dp"-->
+<!--            android:layout_marginStart="37dp"-->
+<!--            android:background="@drawable/searchwhight"-->
+<!--            android:text="Search Farm"-->
+<!--            android:textColor="@color/gray"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintVertical_bias="1.0" />-->
 
-        <LinearLayout
-            android:layout_width="49dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="37dp"
-            android:background="@drawable/searchwhight"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+<!--        <LinearLayout-->
+<!--            android:layout_width="49dp"-->
+<!--            android:layout_height="30dp"-->
+<!--            android:layout_marginStart="37dp"-->
+<!--            android:background="@drawable/searchwhight"-->
+<!--            android:orientation="horizontal"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent">-->
 
-            <EditText
-                android:id="@+id/editTextTextsearch"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/searchwhight"
-                android:drawableStart="@drawable/ic_baseline_search_30"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:paddingStart="15dp" />
-        </LinearLayout>
+<!--            <EditText-->
+<!--                android:id="@+id/editTextTextsearch"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_weight="1"-->
+<!--                android:background="@drawable/searchwhight"-->
+<!--                android:drawableStart="@drawable/ic_baseline_search_24"-->
+<!--                android:ems="5"-->
+<!--                android:inputType="textPersonName"-->
+<!--                android:paddingStart="15dp" />-->
+<!--        </LinearLayout>-->
 
-        <ImageButton
-            android:id="@+id/imageButton"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginEnd="50dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_launcher_background"
-            tools:layout_editor_absoluteX="152dp"
-            tools:layout_editor_absoluteY="404dp" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+<!--        <ImageButton-->
+<!--            android:id="@+id/imageButton"-->
+<!--            android:layout_width="50dp"-->
+<!--            android:layout_height="30dp"-->
+<!--            android:layout_marginEnd="50dp"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:srcCompat="@drawable/ic_launcher_background"-->
+<!--            tools:layout_editor_absoluteX="152dp"-->
+<!--            tools:layout_editor_absoluteY="404dp" />-->
+<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/farmfilter"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
-        android:background="@color/teal_200"
-        app:layout_constraintEnd_toEndOf="parent"
-android:layout_marginStart="25dp"
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:id="@+id/farmfilter"-->
+<!--        android:layout_width="280dp"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:background="@color/teal_200"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--android:layout_marginStart="25dp"-->
 
-        app:layout_constraintStart_toEndOf="@+id/button10"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
+<!--        app:layout_constraintStart_toEndOf="@+id/button10"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />-->
 
-    <Button
-        android:id="@+id/button9"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:text="Button"
-        android:textColor="@color/gray"
-        android:background="@color/whitebluelight"
-        app:layout_constraintBottom_toBottomOf="@+id/farmfilter"
-        app:layout_constraintStart_toStartOf="@+id/farmfilter"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3"
-        app:layout_constraintVertical_bias="1.0" />
+<!--    <Button-->
+<!--        android:id="@+id/button9"-->
+<!--        android:layout_width="100dp"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:text="Button"-->
+<!--        android:textColor="@color/gray"-->
+<!--        android:background="@color/whitebluelight"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/farmfilter"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/farmfilter"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3"-->
+<!--        app:layout_constraintVertical_bias="1.0" />-->
 
-    <Button
-        android:id="@+id/button10"
-        android:layout_width="100dp"
-        android:layout_height="54dp"
-        android:background="@color/black"
-        android:text="All"
-        android:layout_marginStart="20dp"
-        android:textColor="@color/greendark"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
+<!--    <Button-->
+<!--        android:id="@+id/button10"-->
+<!--        android:layout_width="100dp"-->
+<!--        android:layout_height="54dp"-->
+<!--        android:background="@color/black"-->
+<!--        android:text="All"-->
+<!--        android:layout_marginStart="20dp"-->
+<!--        android:textColor="@color/greendark"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />-->
 <!--// done1-->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewProductOfUser"
-        android:layout_width="match_parent"
-        android:layout_height="180dp"
-        android:background="@color/whitebluemedum"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/farmfilter"/>
-
-
-
-
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayoutname"
         android:layout_width="409dp"
-        android:layout_height="52dp"
-        android:background="@color/teal_200"
-        android:padding="10dp"
-
+        android:layout_height="528dp"
+        android:layout_marginTop="17dp"
+        android:background="@color/whitebluemedum"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerViewProductOfUser">
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
 
-        <TextView
-            android:id="@+id/nameiteemslist"
-            android:layout_width="166dp"
-            android:layout_height="33dp"
-            android:layout_marginStart="35dp"
-            android:layout_marginTop="4dp"
-            android:background="@color/white"
-            android:ems="10"
-            android:minHeight="60dp"
-            android:paddingStart="10dp"
-            android:text="TextView"
-            android:textColor="@color/black"
-            android:textFontWeight="@integer/material_motion_duration_long_1"
-            android:textSize="25dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewListpOfUser"
-        android:layout_width="match_parent"
-        android:layout_height="180dp"
-        android:background="@color/teal_200"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayoutname" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 
