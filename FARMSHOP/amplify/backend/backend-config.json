@@ -1,16 +1,12 @@
 {
   "api": {
-    "farmfinal": {
+    "ibrahimapi": {
       "service": "AppSync",
       "providerPlugin": "awscloudformation",
       "output": {
         "authConfig": {
           "defaultAuthentication": {
-            "authenticationType": "API_KEY",
-            "apiKeyConfig": {
-              "apiKeyExpirationDays": 100,
-              "description": "for final farm abd"
-            }
+            "authenticationType": "AWS_IAM"
           },
           "additionalAuthenticationProviders": []
         }
@@ -18,14 +14,16 @@
     }
   },
   "auth": {
-    "farmshopfaa34c08": {
+    "farmshop8569e913": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],
       "customAuth": false,
       "frontendAuthConfig": {
         "loginMechanisms": [
-          "PREFERRED_USERNAME"
+          "EMAIL",
+          "PREFERRED_USERNAME",
+          "PHONE_NUMBER"
         ],
         "signupAttributes": [
           "EMAIL"

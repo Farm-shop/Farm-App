@@ -29,29 +29,29 @@ public class CartPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart_page);
         //************************************************ Start BottomNavigationView ********************************************
-//
-//        BottomNavigationView bottomNavigationView=findViewById(R.id.bottom_navigation);
-//        bottomNavigationView.setSelectedItemId(R.id.cartPage);
-//
-//        BottomNavigationItemView homeInMenu = findViewById(R.id.homeInMenu);
-//        BottomNavigationItemView cartPage = findViewById(R.id.cartPage);
-//        BottomNavigationItemView crops = findViewById(R.id.crops);
-//
-//
-//        homeInMenu.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                startActivity(new Intent(getApplicationContext() , Home.class));
-//            }
-//        });
-//
-//        cartPage.setOnClickListener((v)->{
-//            startActivity(new Intent(getApplicationContext() , CartPage.class));
-//        });
-//
-//        crops.setOnClickListener((v)->{
-//            startActivity(new Intent(getApplicationContext() , ProductPage.class));
-//        });
+
+        BottomNavigationView bottomNavigationView=findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setSelectedItemId(R.id.cartPage);
+
+        BottomNavigationItemView homeInMenu = findViewById(R.id.homeInMenu);
+        BottomNavigationItemView cartPage = findViewById(R.id.cartPage);
+        BottomNavigationItemView crops = findViewById(R.id.crops);
+
+
+        homeInMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext() , Home.class));
+            }
+        });
+
+        cartPage.setOnClickListener((v)->{
+            startActivity(new Intent(getApplicationContext() , CartPage.class));
+        });
+
+        crops.setOnClickListener((v)->{
+            startActivity(new Intent(getApplicationContext() , ProductPage.class));
+        });
 
 //************************************************ End BottomNavigationView ********************************************
     }

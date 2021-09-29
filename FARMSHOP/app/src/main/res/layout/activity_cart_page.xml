@@ -85,8 +85,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/menunav"
         />
-    <!--        app:menu="@menu/menunav"-->
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 <!--<?xml version="1.0" encoding="utf-8"?>-->

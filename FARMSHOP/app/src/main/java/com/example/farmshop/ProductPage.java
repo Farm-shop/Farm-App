@@ -18,10 +18,14 @@ import android.widget.Button;
 import android.widget.HorizontalScrollView;
 import android.widget.TextView;
 
+import com.amplifyframework.AmplifyException;
+import com.amplifyframework.api.aws.AWSApiPlugin;
 import com.amplifyframework.api.graphql.model.ModelQuery;
+import com.amplifyframework.auth.cognito.AWSCognitoAuthPlugin;
 import com.amplifyframework.auth.options.AuthSignOutOptions;
 import com.amplifyframework.core.Amplify;
 import com.amplifyframework.datastore.generated.model.Product;
+import com.amplifyframework.storage.s3.AWSS3StoragePlugin;
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -34,39 +38,38 @@ public class ProductPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_page);
+
     }
 
     @Override
     protected void onStart() {
         super.onStart();
         TextView title=findViewById(R.id.textView3);
-        Amplify.Auth.fetchAuthSession(
-                result ->{
-                    Log.i("AmplifyQuickstart", result.toString());
-                    if (result.isSignedIn()){
-                        Amplify.Auth.fetchUserAttributes(
-                                attributes -> {
-                                    Log.i("AuthDemo", "User attributes = " + attributes.toString());
-                                },
-                                error -> Log.e("AuthDemo", "Failed to fetch user attributes.", error)
-                        );
-                        title.setText(Amplify.Auth.getCurrentUser().getUsername());
-                    }else {
-                        title.setText("customer");
-                    }
-                },
-                error -> Log.e("AmplifyQuickstart", error.toString())
-        );
-//        Button singOut=findViewById(R.id.singOutUser);
-//        singOut.setOnClickListener((v)->{
-//            signOut();
-//
-//
-//        });
+//        Amplify.Auth.fetchAuthSession(
+//                result ->{
+//                    Log.i("AmplifyQuickstart", result.toString());
+//                    if (result.isSignedIn()){
+//                        Amplify.Auth.fetchUserAttributes(
+//                                attributes -> {
+//                                    Log.i("AuthDemo", "User attributes = " + attributes.toString());
+//                                },
+//                                error -> Log.e("AuthDemo", "Failed to fetch user attributes.", error)
+//                        );
+//                        title.setText(Amplify.Auth.getCurrentUser().getUsername());
+//                    }else {
+//                        title.setText("customer");
+//                    }
+//                },
+//                error -> Log.e("AmplifyQuickstart", error.toString())
+//        );
+
+
+        Button singOut=findViewById(R.id.signoutButton);
+        singOut.setOnClickListener((v)->{
+            signOut();
+        });
 
         renderOfProduct();
-
-//        BottomNavigationItemView cart=findViewById(R.id.page_2);
 
 
 

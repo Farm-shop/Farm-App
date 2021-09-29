@@ -1,8 +1,8 @@
 {
-    "identityPoolName": "farmshopfaa34c08_identitypool_faa34c08",
+    "identityPoolName": "farmshop8569e913_identitypool_8569e913",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "farmshfaa34c08",
-    "userPoolName": "farmshopfaa34c08_userpool_faa34c08",
+    "resourceNameTruncated": "farmsh8569e913",
+    "userPoolName": "farmshop8569e913_userpool_8569e913",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -21,7 +21,9 @@
         "email"
     ],
     "aliasAttributes": [
-        "preferred_username"
+        "email",
+        "preferred_username",
+        "phone_number"
     ],
     "userpoolClientGenerateSecret": false,
     "userpoolClientRefreshTokenValidity": 30,
@@ -31,10 +33,10 @@
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "farmshfaa34c08_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "farmsh8569e913_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "faa34c08",
-    "resourceName": "farmshopfaa34c08",
+    "sharedId": "8569e913",
+    "resourceName": "farmshop8569e913",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
         "Fn::GetAtt": [

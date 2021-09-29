@@ -55,41 +55,41 @@ public class AddProduct extends AppCompatActivity {
             startActivityForResult(chooseFile,54321);
         });
     }
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        String key=Amplify.Auth.getCurrentUser().getUserId()+nameProduct.getText().toString();
-        System.out.println(key+")))00000000000000000000");
-        System.out.println(getApplicationContext().getFilesDir()+")))00000000000000000000");
-        File exampleFile = new File(getApplicationContext().getFilesDir(), "title");
-
-//        try {
-//            InputStream inputStream=getContentResolver().openInputStream(data.getData());
-//            OutputStream outputStream=new FileOutputStream(exampleFile);
-//            byte[]buf=new byte[1024];
-//            int len;
-//            while ((len=inputStream.read(buf))>0){
-//                outputStream.write(buf,0,len);
-//            }
-//            inputStream.close();
-//            outputStream.close();
-//            System.out.println(exampleFile+")))00000000000000000000");
-//        } catch (Exception exception) {
-//            Log.e("MyAmplifyApp", "Upload failed", exception);
-//        }
-//        Amplify.Storage.uploadFile(
-//                key,
-//                exampleFile,
-//                result ->{
-//                    System.out.println("result)))00000000000000000000");
-//                    Log.i("MyAmplifyApp", "Successfully uploaded: " + result.getKey());
-//                    System.out.println(")))00000000000000000000");
-//                },
-//                storageFailure -> Log.e("MyAmplifyApp", "Upload failed", storageFailure)
-//        );
-
-
-    }
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        String key=Amplify.Auth.getCurrentUser().getUserId()+nameProduct.getText().toString();
+//        System.out.println(key+")))00000000000000000000");
+//        System.out.println(getApplicationContext().getFilesDir()+")))00000000000000000000");
+////        File exampleFile = new File(getApplicationContext().getFilesDir(), "title");
+//
+////        try {
+////            InputStream inputStream=getContentResolver().openInputStream(data.getData());
+////            OutputStream outputStream=new FileOutputStream(exampleFile);
+////            byte[]buf=new byte[1024];
+////            int len;
+////            while ((len=inputStream.read(buf))>0){
+////                outputStream.write(buf,0,len);
+////            }
+////            inputStream.close();
+////            outputStream.close();
+////            System.out.println(exampleFile+")))00000000000000000000");
+////        } catch (Exception exception) {
+////            Log.e("MyAmplifyApp", "Upload failed", exception);
+////        }
+////        Amplify.Storage.uploadFile(
+////                key,
+////                exampleFile,
+////                result ->{
+////                    System.out.println("result)))00000000000000000000");
+////                    Log.i("MyAmplifyApp", "Successfully uploaded: " + result.getKey());
+////                    System.out.println(")))00000000000000000000");
+////                },
+////                storageFailure -> Log.e("MyAmplifyApp", "Upload failed", storageFailure)
+////        );
+//
+//
+//    }
   public String images;
     private void addProdect(){
         String key=Amplify.Auth.getCurrentUser().getUserId()+nameProduct.getText().toString();

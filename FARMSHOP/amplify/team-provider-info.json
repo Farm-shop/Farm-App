@@ -52,5 +52,23 @@
         "farmshop3d24971a": {}
       }
     }
+  },
+  "ibrahim": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-farmshop-ibrahim-230119-authRole",
+      "UnauthRoleArn": "arn:aws:iam::383631959188:role/amplify-farmshop-ibrahim-230119-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::383631959188:role/amplify-farmshop-ibrahim-230119-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-farmshop-ibrahim-230119-deployment",
+      "UnauthRoleName": "amplify-farmshop-ibrahim-230119-unauthRole",
+      "StackName": "amplify-farmshop-ibrahim-230119",
+      "StackId": "arn:aws:cloudformation:us-east-1:383631959188:stack/amplify-farmshop-ibrahim-230119/06975200-2160-11ec-8756-12021439338b",
+      "AmplifyAppId": "d1b2vtbdj1oorx"
+    },
+    "categories": {
+      "auth": {
+        "farmshop8569e913": {}
+      }
+    }
   }
 }
