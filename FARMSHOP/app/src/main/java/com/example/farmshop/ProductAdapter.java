@@ -45,29 +45,35 @@ public class ProductAdapter extends  RecyclerView.Adapter<ProductAdapter.Product
             this.itemView=itemView;
             ImageButton addToCart=itemView.findViewById(R.id.goToitemDetails);
             addToCart.setOnClickListener((v)->{
-                Intent intent =new Intent(itemView.getContext(),DetailsOfItem.class);
+
+                Amplify.Auth.fetchAuthSession(
+                        result ->{
+                            Log.i("AmplifyQuickstart", result.toString());
+                            if (result.isSignedIn()){
+                                Amplify.Auth.fetchUserAttributes(
+                                        attributes -> {
+                                            Log.i("AuthDemo", "User attributes = " + attributes.toString());
+                                        },
+                                        error -> Log.e("AuthDemo", "Failed to fetch user attributes.", error)
+                                );
+                                Intent intent =new Intent(itemView.getContext(),DetailsOfItem.class);
 //                intent.putExtra("image",product.getImage());
-                intent.putExtra("title",product.getName());
-                intent.putExtra("price",product.getPrice());
-                itemView.getContext().startActivity(intent);
+                                intent.putExtra("title",product.getName());
+                                intent.putExtra("price",product.getPrice());
+                                intent.putExtra("user",Amplify.Auth.getCurrentUser().getUserId());
+                                intent.putExtra("farm",product.getFarmId());
+                                itemView.getContext().startActivity(intent);
+                            }else {
+                                Intent intent =new Intent(itemView.getContext(),LogIn.class);
+                                itemView.getContext().startActivity(intent);
+                            }
+                        },
+                        error -> Log.e("AmplifyQuickstart", error.toString())
+                );
+
+
             });
-//                Item item=Item.builder()
-//                        .userId(Amplify.Auth.getCurrentUser().getUserId())
-//                        .farmId(product.getFarmId())
-//                        .name(product.getName())
-//                        .price(product.getPrice())
-//                        .quantity("1")
-//                        .image(product.getImage())
-//                        .status("add")
-//                        .build();
-//                Amplify.API.mutate(ModelMutation.create(item),
-//                        result -> {Log.i("MyAmplifyApp", "Todo with id: " + result.getData().getId());
 //
-//                        },
-//                        error -> {
-//                            Log.e("MyAmplifyApp", "Create failed", error);
-//                        }
-//                );
 
         }
     }

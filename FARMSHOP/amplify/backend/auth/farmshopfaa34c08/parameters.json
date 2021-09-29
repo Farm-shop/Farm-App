@@ -1,12 +1,12 @@
 {
-    "identityPoolName": "farmshop3d24971a_identitypool_3d24971a",
-    "allowUnauthenticatedIdentities": true,
-    "resourceNameTruncated": "farmsh3d24971a",
-    "userPoolName": "farmshop3d24971a_userpool_3d24971a",
+    "identityPoolName": "farmshopfaa34c08_identitypool_faa34c08",
+    "allowUnauthenticatedIdentities": false,
+    "resourceNameTruncated": "farmshfaa34c08",
+    "userPoolName": "farmshopfaa34c08_userpool_faa34c08",
     "autoVerifiedAttributes": [
         "email"
     ],
-    "mfaConfiguration": "OPTIONAL",
+    "mfaConfiguration": "OFF",
     "mfaTypes": [
         "SMS Text Message"
     ],
@@ -31,10 +31,10 @@
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "farmsh3d24971a_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "farmshfaa34c08_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "3d24971a",
-    "resourceName": "farmshop3d24971a",
+    "sharedId": "faa34c08",
+    "resourceName": "farmshopfaa34c08",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
         "Fn::GetAtt": [
@@ -48,19 +48,8 @@
             "Arn"
         ]
     },
-    "useDefault": "manual",
+    "useDefault": "default",
     "userPoolGroupList": [],
     "serviceName": "Cognito",
-    "dependsOn": [],
-    "thirdPartyAuth": false,
-    "userPoolGroups": false,
-    "adminQueries": false,
-    "triggers": "{}",
-    "hostedUI": false,
-    "parentStack": {
-        "Ref": "AWS::StackId"
-    },
-    "breakCircularDependency": false,
-    "permissions": [],
-    "authProviders": []
+    "dependsOn": []
 }

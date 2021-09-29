@@ -59,11 +59,7 @@ public class CartPage extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        BottomNavigationItemView cart=findViewById(R.id.page_1);
-        cart.setOnClickListener((v)->{
-            Intent startProduct=new Intent(CartPage.this,ProductPage.class);
-            startActivity(startProduct);
-        });
+
         renderOfProduct();
     }
     private void renderOfProduct(){
@@ -83,9 +79,9 @@ public class CartPage extends AppCompatActivity {
                     for (Item item : response.getData()) {
                         if (item.getUserId().equals(Amplify.Auth.getCurrentUser().getUserId())){
                             Log.i("MyAmplifyApp", item.getName());
-                            System.out.println(response+"{{{{{{{{{{{{{{{{{{{{{{{{{{");
+                            System.out.println(response);
                             allItem.add(item);
-                            System.out.println(allItem+"pppppppppppppppppppppppppppppp");
+                            System.out.println(allItem);
                         }
                     }
                     handler.sendEmptyMessage(1);
