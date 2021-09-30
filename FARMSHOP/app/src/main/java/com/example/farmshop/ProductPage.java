@@ -14,6 +14,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.HorizontalScrollView;
 import android.widget.TextView;
@@ -38,30 +39,55 @@ public class ProductPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_page);
+//************************************************ Start BottomNavigationView ********************************************
 
+        BottomNavigationView bottomNavigationView=findViewById(R.id.bottom_navigationproductpage);
+        bottomNavigationView.setSelectedItemId(R.id.crops);
+
+        BottomNavigationItemView homeInMenu = findViewById(R.id.homeInMenu);
+        BottomNavigationItemView cartPage = findViewById(R.id.cartPage);
+        BottomNavigationItemView crops = findViewById(R.id.crops);
+
+
+        homeInMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext() , Home.class));
+            }
+        });
+
+        cartPage.setOnClickListener((v)->{
+            startActivity(new Intent(getApplicationContext() , CartPage.class));
+        });
+
+        crops.setOnClickListener((v)->{
+            startActivity(new Intent(getApplicationContext() , ProductPage.class));
+        });
+
+//************************************************ End BottomNavigationView ********************************************
     }
 
     @Override
     protected void onStart() {
         super.onStart();
         TextView title=findViewById(R.id.textView3);
-//        Amplify.Auth.fetchAuthSession(
-//                result ->{
-//                    Log.i("AmplifyQuickstart", result.toString());
-//                    if (result.isSignedIn()){
-//                        Amplify.Auth.fetchUserAttributes(
-//                                attributes -> {
-//                                    Log.i("AuthDemo", "User attributes = " + attributes.toString());
-//                                },
-//                                error -> Log.e("AuthDemo", "Failed to fetch user attributes.", error)
-//                        );
-//                        title.setText(Amplify.Auth.getCurrentUser().getUsername());
-//                    }else {
-//                        title.setText("customer");
-//                    }
-//                },
-//                error -> Log.e("AmplifyQuickstart", error.toString())
-//        );
+        Amplify.Auth.fetchAuthSession(
+                result ->{
+                    Log.i("AmplifyQuickstart", result.toString());
+                    if (result.isSignedIn()){
+                        Amplify.Auth.fetchUserAttributes(
+                                attributes -> {
+                                    Log.i("AuthDemo", "User attributes = " + attributes.toString());
+                                },
+                                error -> Log.e("AuthDemo", "Failed to fetch user attributes.", error)
+                        );
+                        title.setText(Amplify.Auth.getCurrentUser().getUsername());
+                    }else {
+                        title.setText("customer");
+                    }
+                },
+                error -> Log.e("AmplifyQuickstart", error.toString())
+        );
 
 
         Button singOut=findViewById(R.id.signoutButton);

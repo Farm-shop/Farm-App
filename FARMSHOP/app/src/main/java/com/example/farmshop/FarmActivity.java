@@ -28,6 +28,11 @@ public class FarmActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_farm);
+        Button button=findViewById(R.id.button2);
+        button.setOnClickListener((v)->{
+            Intent intent=new Intent(FarmActivity.this,Order.class);
+            startActivity(intent);
+        });
     }
 
     @Override

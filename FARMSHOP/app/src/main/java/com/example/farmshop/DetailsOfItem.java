@@ -29,8 +29,8 @@ public class DetailsOfItem extends AppCompatActivity {
         Intent intent = getIntent();
         String price = intent.getExtras().getString("price");
         String nameing = intent.getExtras().getString("title");
-        String user = intent.getExtras().getString("title");
-        String farm = intent.getExtras().getString("title");
+        String user = intent.getExtras().getString("user");
+        String farm = intent.getExtras().getString("farm");
 //        String quqntity="1";
         ImageView imageView=findViewById(R.id.goToProductPage);
         ImageView imageView2=findViewById(R.id.goToCart);
@@ -80,14 +80,15 @@ public class DetailsOfItem extends AppCompatActivity {
                             Amplify.API.mutate(ModelMutation.create(item),
                                     resulting -> {
                                         Log.i("MyAmplifyApp", "Todo with id: " + resulting.getData().getId());
-
+                                        System.out.println(resulting+"000000000000000000000000000000000000000000");
+                                        Intent intent4=new Intent(DetailsOfItem.this,ProductPage.class);
+                                        startActivity(intent4);
                                     },
                                     error -> {
                                         Log.e("MyAmplifyApp", "Create failed", error);
                                     }
                             );
-            Intent intent4=new Intent(DetailsOfItem.this,ProductPage.class);
-            startActivity(intent4);
+
 
         });
 //        button.setOnClickListener((v)->{

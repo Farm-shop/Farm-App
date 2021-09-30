@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
             Amplify.addPlugin(new AWSApiPlugin());
 //            Amplify.addPlugin(new AWSDataStorePlugin());
             Amplify.addPlugin(new AWSCognitoAuthPlugin());
-//            Amplify.addPlugin(new AWSS3StoragePlugin());
+            Amplify.addPlugin(new AWSS3StoragePlugin());
             Amplify.configure(getApplicationContext());
             Log.i("MyAmplifyApp", "Initialized Amplify");
             System.out.println("try[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[");

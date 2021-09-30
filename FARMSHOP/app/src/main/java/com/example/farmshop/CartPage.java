@@ -76,10 +76,12 @@ public class CartPage extends AppCompatActivity {
         Amplify.API.query(
                 ModelQuery.list(Item.class),
                 response -> {
+                    System.out.println(response+"99999999999999999999999999999");
                     for (Item item : response.getData()) {
+                        System.out.println(item.getUserId().equals(Amplify.Auth.getCurrentUser().getUserId())+"???????????????????????????");
                         if (item.getUserId().equals(Amplify.Auth.getCurrentUser().getUserId())){
                             Log.i("MyAmplifyApp", item.getName());
-                            System.out.println(response);
+                            System.out.println(response+"5555555555555555555555555555555");
                             allItem.add(item);
                             System.out.println(allItem);
                         }

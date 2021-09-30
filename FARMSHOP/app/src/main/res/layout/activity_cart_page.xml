@@ -9,18 +9,7 @@
     tools:context=".CartPage">
 
 
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="128dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="192dp"
-        android:text="45 jd "
-        android:textColor="@color/blackOpacity"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -58,19 +47,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="128dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="8dp"
-        android:text="Total Price : "
-        android:textColor="@color/design_default_color_on_secondary"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.233"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
